@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('client_name',50);
             $table->string('client_surname',50);
-            $table->string('time',10); //TODO
+            $table->dateTime('time');
     
             $table->timestamps();
         });

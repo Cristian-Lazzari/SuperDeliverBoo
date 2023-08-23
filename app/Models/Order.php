@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     public function Orders(){
-        return $this->hasMany(Order::class);
+        // return $this->(Dishes::class);
     }
 }

@@ -1,7 +1,12 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\DishController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\RestaurantController;
+use App\Http\Controllers\Admin\PageController as AdminPageController;
+use App\Http\Controllers\Guests\PageController as GuestsPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,16 +18,22 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', [GuestsPageController::class, 'home'])->name('guests.home');
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware(['auth', 'verified'])
+->name('admin.')
+->prefix('admin')
+->group(function () {
+        Route::get('/',  [AdminPageController::class, 'dashboard'])->name('dashboard');
+        Route::resource('restaurants', RestaurantController::class);
+        Route::resource('orders', OrderController::class);
+        Route::resource('dishes', DishController::class);
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
+Route::middleware('auth')
+->name('admin.')
+->prefix('admin')
+->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

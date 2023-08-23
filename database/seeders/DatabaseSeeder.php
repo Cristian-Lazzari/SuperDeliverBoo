@@ -16,8 +16,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+<<<<<<< HEAD
             UsersTableSeeder::class,
             DishesTableSeeder::class,
+=======
+            OrdersTableSeeder::class
+>>>>>>> origin/orders
         ]);
     }
 }

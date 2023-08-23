@@ -41,7 +41,7 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'partita_iva' => $request->partita_iva,
             'category' => $request->category,
-            'andress' => $request->andress,
+            'address' => $request->address,
             'description' => $request->description,
             'email' => $request->email,
             'password' => Hash::make($request->password),

@@ -1,11 +1,11 @@
 <section>
     <header>
-        <h2 class="text-secondary">
-            {{ __('Profile Information') }}
+        <h2 class="text-lg font-medium text-gray-900">
+            Il tuo profilo aziendale
         </h2>
 
         <p class="mt-1 text-muted">
-            {{ __("Update your account's profile information and email address.") }}
+            Aggiorna le informazioni del profilo e l'indirizzo email del tuo account.
         </p>
     </header>
 
@@ -18,7 +18,7 @@
         @method('patch')
 
         <div class="mb-2">
-            <label for="name">{{__('Name')}}</label>
+            <label for="name">Nome Azienda</label>
             <input class="form-control" type="text" name="name" id="name" autocomplete="name" value="{{old('name', $user->name)}}" required autofocus>
             @error('name')
             <span class="invalid-feedback" role="alert">
@@ -26,7 +26,6 @@
             </span>
             @enderror
         </div>
-
         <div class="mb-2">
             <label for="email">
                 {{__('Email') }}
@@ -58,9 +57,11 @@
             </div>
             @endif
         </div>
+        
+        
 
         <div class="d-flex align-items-center gap-4">
-            <button class="btn btn-primary" type="submit">{{ __('Save') }}</button>
+            <button class="btn btn-primary" type="submit">Salva</button>
 
             @if (session('status') === 'profile-updated')
             <script>

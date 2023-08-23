@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+
 
 class ProfileController extends Controller
 {
@@ -36,6 +38,18 @@ class ProfileController extends Controller
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
+    public function myupdate(Request $request): RedirectResponse
+    {
+        $user = User::where('id')->firstOrFail();
+        $data = $request->all();
+        $user->address          = $data['address'];
+        $user->partita_iva          = $data['partita_iva'];
+        $user->description          = $data['description'];
+        $user->category          = $data['category'];
+        $user->update();
+        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+    }
+
 
     /**
      * Delete the user's account.

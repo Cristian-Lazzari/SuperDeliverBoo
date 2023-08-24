@@ -7,7 +7,7 @@
     <div class="my-5 mx-5">
         @include('profile.partials.update-password-form')
     </div>
-    <div class="my-5 mx-5">
+    <div class="my-5 mx-5 ">
         @include('profile.partials.delete-user-form')
     </div>
         

@@ -1,6 +1,6 @@
 <section class="space-y-6">
     <header>
-        <h2>
+        <h2 class="fa-solid">
             Delete Account
         </h2>
 
@@ -13,7 +13,7 @@
         @csrf
         @method('delete')
 
-        <div>
+        <div class= "my-3">
             <label for="password_delete">Password</label>
             <input id="password_delete" name="password" type="password">
             @error('password')

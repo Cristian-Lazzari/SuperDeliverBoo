@@ -1,6 +1,6 @@
 <section>
     <header>
-        <h2>
+        <h2 class="fa-solid my-3">
             Profile Information
         </h2>
 
@@ -17,7 +17,7 @@
         @csrf
         @method('patch')
 
-        <div>
+        <div class="my-3">
             <label for="name">Name</label>
             <input id="name" name="name" type="text" value="{{ old('name', $user->name) }}" required />
             @error('name')
@@ -25,7 +25,7 @@
             @enderror
         </div>
 
-        <div>
+        <div class="my-3">
             <label for="email">Email</label>
             <input id="email" name="email" type="email" value="{{ old('email', $user->email) }}" required />
             @error('email')
@@ -52,7 +52,7 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <button>Save</button>
+            <button class="btn btn-success my-1">Save</button>
 
             @if (session('status') === 'profile-updated')
                 <p>Saved</p>

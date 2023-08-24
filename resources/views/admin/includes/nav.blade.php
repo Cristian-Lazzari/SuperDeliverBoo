@@ -13,36 +13,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
                 </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Posts
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('admin.posts.index') }}">Index</a></li>
-                        <li><a class="dropdown-item" href="{{ route('admin.posts.create') }}">Add</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categories
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('admin.categories.index') }}">Index</a></li>
-                        <li><a class="dropdown-item" href="{{ route('admin.categories.create') }}">Add</a></li>
-                    </ul>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Tags
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ route('admin.tags.index') }}">Index</a></li>
-                        <li><a class="dropdown-item" href="{{ route('admin.tags.create') }}">Add</a></li>
-                    </ul>
-                </li>
             </ul>
 
             <ul class="navbar-nav mb-2 mb-lg-0">
@@ -56,7 +26,7 @@
                         <li>
                             <form class="dropdown-item" action="{{ route('logout') }}" method="post">
                                 @csrf
-                                <button class="btn btn-link">Logout</button>
+                                <button class="btn btn-danger">Logout</button>
                             </form>
                         </li>
                     </ul>

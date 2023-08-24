@@ -2,6 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\LeadController;
+use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\Api\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::get('posts', [PostController::class, 'index'])->name('api.posts.index'); // nomesito/api/posts
+Route::get('posts/random', [PostController::class, 'random'])->name('api.posts.random');
+Route::get('posts/{post}', [PostController::class, 'show'])->name('api.posts.show');
+
+Route::get('categories', [CategoryController::class, 'index'])->name('api.categories.index'); // nomesito/api/categories
+
+Route::post('leads/', [LeadController::class, 'store'])->name('api.leads.store');

@@ -1,62 +1,48 @@
 <section>
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
-            Aggiorna password
+        <h2>
+            Update Password
         </h2>
 
-        <p class="mt-1 text-sm text-gray-600">
-            Assicurati che il tuo profilo utilizzi una password lunga e casuale.
+        <p>
+            Ensure your account is using a long, random password to stay secure.
         </p>
     </header>
 
-    <form method="post" action="{{ route('password.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('password.update') }}">
         @csrf
         @method('put')
 
-        <div class="mb-2">
-            <label for="current_password">Password corrente</label>
-            <input class="mt-1 form-control" type="password" name="current_password" id="current_password" autocomplete="current-password">
+        <div>
+            <label for="current_password">Current Password</label>
+            <input id="current_password" name="current_password" type="password">
             @error('current_password')
-            <span class="invalid-feedback mt-2" role="alert">
-                <strong>{{ $errors->updatePassword->get('current_password') }}</strong>
-            </span>
+                {{ $message }}
             @enderror
         </div>
 
-        <div class="mb-2">
-            <label for="password">Nuova password</label>
-            <input class="mt-1 form-control" type="password" name="password" id="password" autocomplete="new-password">
+        <div>
+            <label for="password">New Password</label>
+            <input id="password" name="password" type="password">
             @error('password')
-            <span class="invalid-feedback mt-2" role="alert">
-                <strong>{{ $errors->updatePassword->get('password')}}</strong>
-            </span>
+                {{ $message }}
             @enderror
         </div>
 
-        <div class="mb-2">
-
-            <label for="password_confirmation">Conferma password</label>
-            <input class="mt-2 form-control" type="password" name="password_confirmation" id="password_confirmation" autocomplete="new-password">
+        <div>
+            <label for="password_confirmation">Confirm Password</label>
+            <input id="password_confirmation" name="password_confirmation" type="password">
             @error('password_confirmation')
-            <span class="invalid-feedback mt-2" role="alert">
-                <strong>{{ $errors->updatePassword->get('password_confirmation')}}</strong>
-            </span>
+                {{ $message }}
             @enderror
         </div>
 
-        <div class="d-flex align-items-center gap-4">
-            <button type="submit" class="btn btn-primary">Salva</button>
+
+        <div class="flex items-center gap-4">
+            <button>Save</button>
 
             @if (session('status') === 'password-updated')
-            <script>
-                const show = true;
-                setTimeout(() => show = false, 2000)
-                const el = document.getElementById('status')
-                if (show) {
-                    el.style.display = 'block';
-                }
-            </script>
-            <p id='status' class=" fs-5 text-muted">{{ __('Saved.') }}</p>
+                <p>Saved.</p>
             @endif
         </div>
     </form>

@@ -1,6 +1,7 @@
 @extends('admin.layouts.base')
 
 @section('contents')
+@php $user = Auth::user(); @endphp
 
     <h1>Edit post</h1>
 

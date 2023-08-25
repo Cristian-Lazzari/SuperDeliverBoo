@@ -24,7 +24,7 @@ class RestaurantsTableSeeder extends Seeder
 
                 $restaurant = new Restaurant;
     
-                $restaurant->user_id = 1;
+
                 $restaurant->activity_name = 'main';
 
                 // $restaurant->image = 'https://picsum.photos/id/' . rand(1, 1080) . '/500/350';

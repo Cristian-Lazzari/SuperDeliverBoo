@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PageController extends Controller
 {
-    public function dashboard() {
-        return view ('admin.restaurants.create');
+    public function dashboard(){
+        $user = User::all();
+        $restaurant = Restaurant::all();
+        return view('admin.dashboard', compact('restaurant', 'user'));
     }
 }
 

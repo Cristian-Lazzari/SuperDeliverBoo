@@ -6,6 +6,8 @@ use App\Models\User;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class RestaurantController extends Controller
 {
@@ -24,7 +26,7 @@ class RestaurantController extends Controller
     public function create()
     {
         $users       = User::all();
-        return view('admin.projects.create', compact('users') );
+        return view('admin.restaurants.create', compact('users') );
     }
 
     public function store(Request $request)
@@ -59,13 +61,34 @@ class RestaurantController extends Controller
     public function edit($id)
     {
         $users       = User::all();
-        return view('admin.projects.create', compact('users') );
+        return view('admin.restaurants.create', compact('users') );
     }
 
 
     public function update(Request $request, $id)
     {
-        //
+        $restaurant = Restaurant::where($id)->firstOrFail();
+
+        if (Auth::id() !== $restaurant->user_id) abort(403);
+
+        // validare i dati del form
+        $request->validate($this->validations);
+
+        $data = $request->all();
+
+        $restaurant->activity_name   = $data['activity_name'];
+        $restaurant->address         = $data['address'];
+        $restaurant->partita_iva     = $data['partita_iva'];
+        $restaurant->description     = $data['description'];
+        $restaurant->user_id         = $data['user_id'];
+        // aggiornare i dati nel db se validi
+
+        $restaurant->update();
+
+
+
+        // ridirezionare su una rotta di tipo get
+        return to_route('admin.restaurants.show', ['restaurant' => $restaurant]);
     }
 
 

@@ -14,7 +14,7 @@ class Restaurant extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**

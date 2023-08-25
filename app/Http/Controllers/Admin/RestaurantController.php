@@ -19,25 +19,27 @@ class RestaurantController extends Controller
 
     public function index()
     {
-        //
+        $restaurants = Restaurant::with('user')->where('user_id', Auth::id())->paginate(1);
+
+        return view('admin.restaurants.index', compact('restaurants'));
     }
 
 
     public function create()
     {
         $users       = User::all();
-        return view('admin.restaurants.create', compact('users') );
+        return view('admin.restaurants.create', compact('users'));
     }
 
     public function store(Request $request)
     {
         // $request->validate($this->validations);
-    
+
         $data = $request->all();
 
         $newRestaurant = new Restaurant();
 
-        
+
         $newRestaurant->activity_name          = $data['activity_name'];
         $newRestaurant->address         = $data['address'];
         $newRestaurant->partita_iva         = $data['partita_iva'];
@@ -46,10 +48,10 @@ class RestaurantController extends Controller
 
 
         $newRestaurant->save();
-        
+
         //$newRestaurant->categories()->sync($data['categories'] ?? []);
-        
-		return redirect()->route('admin.dashboard');
+
+        return redirect()->route('admin.dashboard');
     }
 
     public function show($id)
@@ -61,7 +63,8 @@ class RestaurantController extends Controller
     public function edit($id)
     {
         $users       = User::all();
-        return view('admin.restaurants.create', compact('users') );
+        $restaurants = Restaurant::with('user')->where('user_id', Auth::id())->paginate(1);
+        return view('admin.restaurants.create', compact('users'));
     }
 
 

@@ -1,9 +1,9 @@
 @extends('admin.layouts.base')
 
 @section('contents')
-@php $user = Auth::user(); @endphp
 
-@if ($restaurant !== null)
+
+@if (Auth::id() === $restaurants->user->id)
    @include('admin.restaurants.create')
 
    {{-- <a href="{{route('admin.restaurants.edit')}}"></a> --}}
@@ -13,3 +13,4 @@
 {{-- @include('admin.restaurants.edit') --}}
 
 @endsection
+

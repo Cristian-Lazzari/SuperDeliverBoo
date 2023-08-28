@@ -56,6 +56,5 @@ class CategoriesTableSeeder extends Seeder
         foreach ($categories as $data) {
             Category::create($data);
         }
-
     }
 }

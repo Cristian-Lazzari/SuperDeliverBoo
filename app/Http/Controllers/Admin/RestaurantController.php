@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -28,7 +29,8 @@ class RestaurantController extends Controller
     public function create()
     {
         $users       = User::all();
-        return view('admin.restaurants.create', compact('users'));
+        $categories  = Category::all();
+        return view('auth.register', compact('users', 'categories'));
     }
 
     public function store(Request $request)
@@ -49,7 +51,7 @@ class RestaurantController extends Controller
 
         $newRestaurant->save();
 
-        //$newRestaurant->categories()->sync($data['categories'] ?? []);
+        $newRestaurant->categories()->sync($data['categories'] ?? []);
 
         return redirect()->route('admin.dashboard');
     }

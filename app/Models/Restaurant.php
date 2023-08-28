@@ -12,7 +12,8 @@ class Restaurant extends Model
 
     public $timestamps = false;
 
-    public function user(){
-        return $this->asOne(User::class);
+    public function user()
+    {
+        return $this->hasOne(User::class);
     }
 }

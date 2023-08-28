@@ -1,16 +1,12 @@
 @extends('admin.layouts.base')
 
 @section('contents')
+<a href="{{route('admin.restaurants.index')}}">Rai</a>
 
-
-@if (Auth::id() === $restaurants->user->id)
-   @include('admin.restaurants.create')
-
-   {{-- <a href="{{route('admin.restaurants.edit')}}"></a> --}}
-@endif
 
 
 {{-- @include('admin.restaurants.edit') --}}
 
 @endsection
+
 

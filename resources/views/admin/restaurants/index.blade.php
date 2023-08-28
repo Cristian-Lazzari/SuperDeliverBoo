@@ -1,20 +1,14 @@
 @extends('admin.layouts.base')
 
-    @section('contents')
+@section('contents')
+    @php $user = Auth::user(); @endphp
         
         @foreach ($restaurants as $restaurant)
-            @if (Auth::id() === $restaurant->user->id)
-                <h1>
-                    {{$restaurant->activity_name}}
-                </h1>
-
-            @endif
- 
-                
+            {{$restaurant->activity_name}}    
         @endforeach
 
 
-    @endsection
+@endsection
     
    
 

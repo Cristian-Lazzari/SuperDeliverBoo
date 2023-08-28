@@ -46,7 +46,8 @@ class User extends Authenticatable
 
 
 
-    public function restaurant(){
+    public function restaurant()
+    {
         return $this->belongsTo(Restaurant::class);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Post;
+use App\Models\Restaurant;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -43,7 +44,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function posts() {
-        return $this->hasMany(Post::class);
+
+
+    public function restaurant()
+    {
+        return $this->belongsTo(Restaurant::class);
     }
 }

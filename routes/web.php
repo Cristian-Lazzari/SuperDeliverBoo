@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\TagController;
-use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\RestaurantController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PageController as AdminPageController;
 use App\Http\Controllers\Guests\PageController as GuestsPageController;
@@ -26,9 +26,8 @@ Route::middleware(['auth', 'verified'])
     ->prefix('admin')
     ->group(function () {
         Route::get('/', [AdminPageController::class, 'dashboard'])->name('dashboard');
-        Route::resource('posts', PostController::class);
-        Route::resource('categories', CategoryController::class);
-        Route::resource('tags', TagController::class);
+        Route::resource('restaurants', RestaurantController::class);
+
 });
 
 Route::middleware('auth')
@@ -41,3 +40,4 @@ Route::middleware('auth')
 });
 
 require __DIR__.'/auth.php';
+

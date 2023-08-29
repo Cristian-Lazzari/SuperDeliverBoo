@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card  mb-5">
-                    <div class="card-header">Registrati</div>
+                    <div class="card-header">Registrati!</div>
 
                     <div class="card-body">
                         <form id="formCreate" method="POST" action="{{ route('register') }}" enctype="multipart/form-data" novalidate>
@@ -54,12 +54,12 @@
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
                                         name="password_confirmation" autocomplete="new-password">
-                                    <div id="errorDiv2" style="display: none; color: red;">Password don't match.</div>
+                                    <div id="errorDiv2" style="display: none; color: red;">Le password non corrispondono.</div>
                                 </div>
                             </div>
 
                             <div class="row mb-4">
-                                <label class="col-md-4 col-form-label text-md-right">Descrizione </label>
+                                <label class="col-md-4 col-form-label text-md-right">Descrizione</label>
                                 <div class="col-md-6">
                                     <input type="text" maxlength="100" required class="form-control @error('activity_name') is-invalid @enderror"
                                         name="activity_name">
@@ -71,7 +71,7 @@
                                 </div>
                             </div>
                             <div class="row mb-4">
-                                <label class="col-md-4 col-form-label text-md-right">Activity Name* </label>
+                                <label class="col-md-4 col-form-label text-md-right">Nome attività</label>
                                 <div class="col-md-6">
                                     <input type="text" maxlength="100" required class="form-control @error('description') is-invalid @enderror"
                                         name="description">
@@ -84,7 +84,7 @@
                             </div>
 
                             <div class="row mb-4">
-                                <label for="formFile" class="col-md-4 col-form-label text-md-right">Upload image</label>
+                                <label for="formFile" class="col-md-4 col-form-label text-md-right">Carica Immagine</label>
                                 <div class="col-md-6">
                                     <input class="form-control" type="file" id="formFile" name="restaurant_image">
                                 </div>
@@ -92,7 +92,7 @@
 
                             <div class="row mb-4">
                                 <label class="col-md-4 col-form-label text-md-right">
-                                    Address</label>
+                                    Indirizzo</label>
                                 <div class="col-md-6">
                                     <input type="text" required
                                         class="form-control @error('address') is-invalid @enderror" name="address">
@@ -103,14 +103,14 @@
                             </div>
 
                             <div class="row mb-4">
-                                <label class="col-md-4 col-form-label text-md-right">P. Iva*</label>
+                                <label class="col-md-4 col-form-label text-md-right">Partita Iva</label>
                                 <div class="col-md-6">
                                     <input type="text" id="Vat" pattern="[0-9]{11}" required class="form-control @error('partita_iva') is-invalid @enderror"
                                         name="partita_iva">
                                     @error('partita_iva')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
-                                        <div id="errorDiv3" style="display: none; color: red;">P. iva must be composed of 11 numbers.</div>
+                                        <div id="errorDiv3" style="display: none; color: red;">La partita iva deve essere composta da minimo 11 caratteri.</div>
                                 </div>
                             </div>
                             
@@ -142,8 +142,8 @@
                                 </div>
                             </div>
                         </form>
-                        <div id="errorDiv" style="display: none; color: red;">Select almost a category.</div>
-                        <p class="my-4"><b>*Campo obbligatorio</b></p>
+                        <div id="errorDiv" style="display: none; color: red;">Seleziona almeno una categoria</div>
+                        <p class="my-4"><b>Campo obbligatorio</b></p>
                     </div>
                 </div>
             </div>

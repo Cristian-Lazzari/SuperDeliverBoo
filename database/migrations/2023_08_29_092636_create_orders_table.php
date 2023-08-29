@@ -17,14 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('name', 50)->required();
             $table->string('surname', 50)->required();
-            $table->string('phone', 10)->required();
+            $table->string('phone', 20)->required();
             $table->string('address', 100)->required();
             $table->string('status', 100)->required();
             $table->string('total_price', 100)->required();
-            $table->dateTime('time')->nullable();
-
-
-            $table->timestamps();
+            $table->string('time')->required();
         });
     }
 

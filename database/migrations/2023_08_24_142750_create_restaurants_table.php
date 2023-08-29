@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('activity_name', 100);
             $table->string('address', 100);
             $table->text('description', 250);
-            $table->string('partita_iva', 11);
+            $table->string('partita_iva', 20);
 
 
             //$table->string('image');restaurant_id

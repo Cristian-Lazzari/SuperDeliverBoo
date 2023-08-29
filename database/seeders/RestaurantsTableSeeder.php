@@ -16,14 +16,13 @@ class RestaurantsTableSeeder extends Seeder
      * @return void
      */
     public function run(Faker $faker)
-    {
-        {
+    { {
 
-    
+
             for ($i = 0; $i < 50; $i++) {
 
                 $restaurant = new Restaurant;
-    
+
 
                 $restaurant->activity_name = 'main';
 
@@ -31,9 +30,9 @@ class RestaurantsTableSeeder extends Seeder
                 $restaurant->description = $faker->paragraph(rand(2, 10), true);
                 $restaurant->address = $faker->word(2);
                 $restaurant->partita_iva = $faker->regexify('[0-4]{11}');
-    
+
                 $restaurant->save();
-    
+
                 // associate a random number of technologies to each restaurant
 
             }

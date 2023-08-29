@@ -2,11 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Restaurant;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Dish extends Model
 {
     use HasFactory;
     public $timestamps = false;
+
+    public function dish()
+    {
+        return $this->belongsTo(Restaurant::class);
+    }
 }

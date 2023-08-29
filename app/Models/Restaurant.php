@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Dish;
 use App\Models\User;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
@@ -30,5 +31,9 @@ class Restaurant extends Model
     public function categories()
     {
         return $this->belongsTo(Category::class);
+    }
+    public function dishes()
+    {
+        return $this->hasMany(Dish::class);
     }
 }

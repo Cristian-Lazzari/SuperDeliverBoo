@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-
-        Schema::create('dishes', function (Blueprint $table) {
-            $table->id();
-            $table->string('name', 50)->required();
-            $table->string('image')->nullable();
-            $table->string('price', 10);
-            $table->boolean('avaible');
-            $table->text('description', 250);
+        Schema::table('dishes', function (Blueprint $table) {
+            $table->unsignedBigInteger('restaurant_id')->nullable()->after('id');
+            $table->foreign('restaurant_id')->references('id')->on('restaurants')->cascadeOnDelete();
         });
     }
 
@@ -31,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dishes');
+        Schema::table('dishes', function (Blueprint $table) {
+            //
+        });
     }
 };

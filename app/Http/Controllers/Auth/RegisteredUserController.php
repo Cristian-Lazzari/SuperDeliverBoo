@@ -38,10 +38,10 @@ class RegisteredUserController extends Controller
         $request->validate([
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'name' => ['required', 'string', 'max:100'],
+            // 'activity_name' => ['required', 'string', 'max:100'],
             'address' => ['required', 'string', 'max:255'],
             'partita_iva' => ['required', 'digits:11'],
-            'category_id' => ['required', 'array', 'min:1']
+            'category_id' => ['nullable', 'array', 'min:1']
         ]);
 
         $user = User::create([
@@ -50,15 +50,13 @@ class RegisteredUserController extends Controller
         ]);
 
         $restaurantData = [
-            'name' => $request->name,
+            'activity_name' => $request->activity_name,
             'address' => $request->address,
             'partita_iva' => $request->partita_iva,
-            'user_id' => $user->id,
+            // 'user_id' => $user->id,
+            'description' => $request->description,
         ];
 
-        $slug = Restaurant::generateSlug($request->name);
-
-        $restaurantData['slug'] = $slug;
 
         if ($request->hasFile('restaurant_image')) {
 
@@ -74,7 +72,7 @@ class RegisteredUserController extends Controller
             $user->save();
         }
 
-        $newRestaurant->types()->sync($request->input('category_id'));
+        $newRestaurant->categories()->sync($request->input('category_id'));
 
         event(new Registered($user));
 

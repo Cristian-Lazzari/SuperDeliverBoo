@@ -28,6 +28,7 @@ class RestaurantController extends Controller
 
     public function create()
     {
+        $restaurants = Restaurant::all();
         $users       = User::all();
         $categories  = Category::all();
         return view('auth.register', compact('users', 'categories'));
@@ -41,12 +42,12 @@ class RestaurantController extends Controller
 
         $newRestaurant = new Restaurant();
 
-
+        $newRestaurant->user_id         = $data['user_id'];
         $newRestaurant->activity_name          = $data['activity_name'];
         $newRestaurant->address         = $data['address'];
         $newRestaurant->partita_iva         = $data['partita_iva'];
         $newRestaurant->description         = $data['description'];
-        $newRestaurant->user_id         = $data['user_id'];
+
 
 
         $newRestaurant->save();

@@ -17,9 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('CASCADE');
 
-            $table->unsignedBigInteger('restaurant_id');
-            $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('CASCADE');
-
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('restaurants')->onDelete('CASCADE');
         });
     }
 

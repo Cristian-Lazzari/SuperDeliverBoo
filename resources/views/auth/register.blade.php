@@ -8,7 +8,7 @@
                     <div class="card-header">Registrati</div>
 
                     <div class="card-body">
-                        <form novalidate id="formCreate" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                        <form id="formCreate" method="POST" action="{{ route('register') }}" enctype="multipart/form-data" novalidate>
                             @csrf
                             <div class="mb-4 row">
                                 <label for="email"
@@ -59,10 +59,22 @@
                             </div>
 
                             <div class="row mb-4">
+                                <label class="col-md-4 col-form-label text-md-right">Descrizione </label>
+                                <div class="col-md-6">
+                                    <input type="text" maxlength="100" required class="form-control @error('activity_name') is-invalid @enderror"
+                                        name="activity_name">
+                                    @error('name')
+                                        <div class="alert alert-danger">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row mb-4">
                                 <label class="col-md-4 col-form-label text-md-right">Activity Name* </label>
                                 <div class="col-md-6">
-                                    <input type="text" maxlength="100" required class="form-control @error('name') is-invalid @enderror"
-                                        name="name">
+                                    <input type="text" maxlength="100" required class="form-control @error('description') is-invalid @enderror"
+                                        name="description">
                                     @error('name')
                                         <div class="alert alert-danger">
                                             {{ $message }}
@@ -80,7 +92,7 @@
 
                             <div class="row mb-4">
                                 <label class="col-md-4 col-form-label text-md-right">
-                                    Address*</label>
+                                    Address</label>
                                 <div class="col-md-6">
                                     <input type="text" required
                                         class="form-control @error('address') is-invalid @enderror" name="address">
@@ -101,14 +113,15 @@
                                         <div id="errorDiv3" style="display: none; color: red;">P. iva must be composed of 11 numbers.</div>
                                 </div>
                             </div>
+                            
 
                             <label class="form-label mb-4 mt-4">Categoria</label>
                             <div class="mb-4 d-flex w-50 ">
                                 <div>
                                     @foreach ($categories as $category)
                                         <div> 
-                                            <input id="category" class="@error($category->title) is-invalid @enderror category-checkbox"
-                                                    type="checkbox"  value="{{ $category->id }}">
+                                            <input id=" $category_id " class="@error($category->title) is-invalid @enderror category-checkbox"
+                                                   name="$category_id" type="checkbox"  value="{{ $category->id }}">
                                             <label for="category">
                                                
                                                 {{ $category->title }}

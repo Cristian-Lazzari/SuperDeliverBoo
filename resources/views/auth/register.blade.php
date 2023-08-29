@@ -120,8 +120,8 @@
                                 <div>
                                     @foreach ($categories as $category)
                                         <div> 
-                                            <input id=" $category_id " class="@error($category->title) is-invalid @enderror category-checkbox"
-                                                   name="$category_id" type="checkbox"  value="{{ $category->id }}">
+                                            <input id="category_id{{$category->id}}" class="@error($category->title) is-invalid @enderror category-checkbox"
+                                                   name="category_id[]" type="checkbox"  value="{{ $category->id }}">
                                             <label for="category">
                                                
                                                 {{ $category->title }}

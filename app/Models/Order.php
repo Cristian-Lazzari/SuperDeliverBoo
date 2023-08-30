@@ -9,4 +9,9 @@ class Order extends Model
 {
     use HasFactory;
     public $timestamps = false;
+
+    public function dishes()
+    {
+        return $this->belongsToMany('App\Models\Dish');
+    }
 }

@@ -12,9 +12,13 @@ class PageController extends Controller
 {
     public function dashboard()
     {
+        
+            $user = User::find(auth()->user()->id);
+            $restaurant = Restaurant::with('user')->where('user_id', Auth::id())->paginate(1);
+        
+        
+            return view('admin.dashboard', compact('restaurant', 'user'));
 
-        // $restaurants = Restaurant::with('user')->where('user_id', Auth::id())->paginate(1);
-        return view('admin.dashboard');
     }
 }
 

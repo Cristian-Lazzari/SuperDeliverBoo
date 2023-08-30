@@ -12,49 +12,23 @@ use Illuminate\Support\Facades\Storage;
 
 class RestaurantController extends Controller
 {
-    private $validations = [
-        'name'          => 'required|string|min:3|max:100',
 
-    ];
 
 
     public function index()
     {
-        $restaurants = Restaurant::with('user')->where('user_id', Auth::id())->paginate(1);
 
-        return view('admin.restaurants.index', compact('restaurants'));
     }
 
 
     public function create()
     {
-        $restaurants = Restaurant::all();
-        $users       = User::all();
-        $categories  = Category::all();
-        return view('auth.register', compact('users', 'categories'));
+
     }
 
     public function store(Request $request)
     {
-        // $request->validate($this->validations);
-
-        $data = $request->all();
-
-        $newRestaurant = new Restaurant();
-
-        $newRestaurant->user_id         = $data['user_id'];
-        $newRestaurant->activity_name          = $data['activity_name'];
-        $newRestaurant->address         = $data['address'];
-        $newRestaurant->partita_iva         = $data['partita_iva'];
-        $newRestaurant->description         = $data['description'];
-
-
-
-        $newRestaurant->save();
-
-        $newRestaurant->categories()->sync($data['categories'] ?? []);
-
-        return redirect()->route('admin.dashboard');
+ 
     }
 
     public function show($id)
@@ -65,36 +39,13 @@ class RestaurantController extends Controller
 
     public function edit($id)
     {
-        $users       = User::all();
-        $restaurants = Restaurant::with('user')->where('user_id', Auth::id())->paginate(1);
-        return view('admin.restaurants.create', compact('users'));
+
     }
 
 
     public function update(Request $request, $id)
     {
-        $restaurant = Restaurant::where($id)->firstOrFail();
-
-        
-
-        // validare i dati del form
-        $request->validate($this->validations);
-
-        $data = $request->all();
-
-        $restaurant->activity_name   = $data['activity_name'];
-        $restaurant->address         = $data['address'];
-        $restaurant->partita_iva     = $data['partita_iva'];
-        $restaurant->description     = $data['description'];
-        $restaurant->user_id         = $data['user_id'];
-        // aggiornare i dati nel db se validi
-
-        $restaurant->update();
-
-
-
-        // ridirezionare su una rotta di tipo get
-        return to_route('admin.restaurants.show', ['restaurant' => $restaurant]);
+  
     }
 
 

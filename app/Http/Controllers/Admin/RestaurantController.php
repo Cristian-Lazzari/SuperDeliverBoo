@@ -75,7 +75,7 @@ class RestaurantController extends Controller
     {
         $restaurant = Restaurant::where($id)->firstOrFail();
 
-        if (Auth::id() !== $restaurant->user_id) abort(403);
+        
 
         // validare i dati del form
         $request->validate($this->validations);

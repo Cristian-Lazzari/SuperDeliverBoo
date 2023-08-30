@@ -17,10 +17,10 @@ return new class extends Migration
             $table->unsignedBigInteger('dish_id');
             $table->foreign('dish_id')->references('id')->on('dishes');
 
-            $table->tinyInteger('quantity_item');
 
             $table->unsignedBigInteger('order_id');
             $table->foreign('order_id')->references('id')->on('orders');
+            $table->tinyInteger('quantity_item');
             $table->primary(['dish_id', 'order_id']);
         });
     }

@@ -33,6 +33,10 @@ class UsersTableSeeder extends Seeder
                 'password'  => Hash::make('123123123'),
             ],
             [
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/main
                 'email'     => 'christian.perera@gmail.com',
                 'password'  => Hash::make('123123123'),
             ]

@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\TagController;
-use App\Http\Controllers\Admin\RestaurantController;
+use App\Http\Controllers\Admin\DishController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\RestaurantController;
 use App\Http\Controllers\Admin\PageController as AdminPageController;
 use App\Http\Controllers\Guests\PageController as GuestsPageController;
 
@@ -27,6 +28,7 @@ Route::middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/', [AdminPageController::class, 'dashboard'])->name('dashboard');
         Route::resource('restaurants', RestaurantController::class);
+        Route::resource('dishes', DishController::class);
 
 });
 

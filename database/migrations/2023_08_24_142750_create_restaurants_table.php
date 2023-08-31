@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('address', 100);
             $table->text('description', 250);
             $table->string('partita_iva', 20);
+            $table->unsignedBigInteger('user_id')->nullable();
 
 
             //$table->string('image');restaurant_id

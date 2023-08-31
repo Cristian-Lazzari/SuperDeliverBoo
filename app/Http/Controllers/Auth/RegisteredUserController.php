@@ -53,7 +53,7 @@ class RegisteredUserController extends Controller
             'activity_name' => $request->activity_name,
             'address' => $request->address,
             'partita_iva' => $request->partita_iva,
-            // 'user_id' => $user->id,
+            'user_id' => $user->id,
             'description' => $request->description,
         ];
 

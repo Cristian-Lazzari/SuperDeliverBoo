@@ -7,6 +7,7 @@
 {{$restaurant->description}}
 {{$restaurant->partita_iva}}
 <a href="{{route('admin.dishes.index')}}">Piatti index</a>
+<a href="{{route('admin.dishes.create')}}">Piatti create</a>
 
 
 

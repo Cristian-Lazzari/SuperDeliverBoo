@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Dish;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class DishController extends Controller
 {
@@ -29,7 +32,7 @@ class DishController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.dishes.create');
     }
 
     /**
@@ -40,7 +43,34 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+
+        // validare i dati del form
+        // $request->validate($this->validations, $this->validation_messages);   //// TO DOOOO
+
+        $data = $request->all();
+
+        // salvare l'immagine nella cartella degli uploads
+        // prendere il percorso dell'immagine appena salvata
+        //if (isset($imagePath)) {
+        //    $imagePath = Storage::put('uploads', $data['image']);
+        //    $newDish->image = $imagePath;
+        //}
+        // dd($imagePath);
+
+
+        // salvare i dati nel db se validi insieme al percorso dell'immagine
+        $newDish = new Dish();
+        $newDish->name         = $data['name'];
+        $newDish->price   = $data['price'];
+        $newDish->description     = $data['description'];
+        $newDish->avaible       = $data['avaible'];
+        $newDish->restaurant_id       = 1;
+
+        $newDish->save();
+
+        // ridirezionare su una rotta di tipo get
+        return to_route('admin.dishes.index', ['dish' => $newDish]);
     }
 
     /**

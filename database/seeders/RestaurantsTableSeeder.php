@@ -19,12 +19,12 @@ class RestaurantsTableSeeder extends Seeder
     { {
 
 
-            for ($i = 0; $i < 3; $i++) {
+            for ($i = 0; $i < 50; $i++) {
 
                 $restaurant = new Restaurant;
 
 
-                $restaurant->user_id = 3;
+                $restaurant->user_id = 1;
                 $restaurant->activity_name = 'main';
 
                 // $restaurant->image = 'https://picsum.photos/id/' . rand(1, 1080) . '/500/350';

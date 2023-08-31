@@ -18,7 +18,7 @@ class DishesTableSeeder extends Seeder
 
                 $dish = new Dish;
 
-                $dish->restaurant_id = 3;
+                $dish->restaurant_id = 1;
                 $dish->name = $faker->firstName();
                 // $dish->image = 'https://picsum.photos/id/' . rand(1, 1080) . '/500/350';
                 $dish->description = $faker->paragraph(rand(2, 10), true);

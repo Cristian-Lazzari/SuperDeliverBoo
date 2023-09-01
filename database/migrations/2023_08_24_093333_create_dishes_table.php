@@ -16,6 +16,7 @@ return new class extends Migration
 
         Schema::create('dishes', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->string('name', 50)->required();
             $table->string('image')->nullable();
             $table->string('price', 10);

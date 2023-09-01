@@ -18,11 +18,9 @@ class DishController extends Controller
      */
     public function index()
     {
-        $user = User::find(auth()->user()->id);
+        $dishes = Dish::where('user_id', Auth::id())->paginate(5);
 
-        $dishes = $user->restaurant->dishes;
-
-        return view('admin.dishes.index', compact('user', 'dishes'));
+        return view('admin.dishes.index', compact('dishes'));
     }
 
     /**
@@ -66,6 +64,7 @@ class DishController extends Controller
         $newDish->description     = $data['description'];
         $newDish->avaible       = $data['avaible'];
         $newDish->restaurant_id       = 1;
+        $newDish->user_id       = $newDish->restaurant_id;
 
         $newDish->save();
 
@@ -90,9 +89,20 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Dish $dish, Request $request)
     {
-        //
+        // Trova il piatto corrispondente all'ID richiesto e al ristorantedell'utente autenticato
+        $dish = User::find(auth()->user()->id)
+            ->restaurant
+            ->dishes
+            ->find($request->route()->dish);
+
+        // Se l'dish non esiste o non fa parte dello user autenticato, restituisci 401      Unauthorized
+        if (!$dish) {
+            abort(401, 'Unauthorized');
+        }
+
+        return view('admin.dishes.edit', compact('dish'));
     }
 
     /**

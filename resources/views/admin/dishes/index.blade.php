@@ -22,11 +22,13 @@
                 <td>{{$item->price}}</td>
                 <td>{{$item->aviable}}</td>
                 
+                <td><a class="btn btn-primary me-3" href="{{ route('admin.dishes.edit', '$dish') }}">Edit</a></td>
 
     @endforeach
             </tr>
         
     </table>
+    
 
 @endsection
 

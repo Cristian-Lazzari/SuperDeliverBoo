@@ -10,7 +10,7 @@
             <th>NOME</th>
             <th>DESCRIPTION</th>
             <th>PRICE</th>
-            <th>AVIABLE</th>
+            <th>AVAILABLE</th>
             
         </tr>
             
@@ -20,10 +20,27 @@
                 <td>{{$item->name}}</td>
                 <td>{{$item->description}}</td>
                 <td>{{$item->price}}</td>
-                <td>{{$item->aviable}}</td>
-                
-                <td><a class="btn btn-primary me-3" href="{{ route('admin.dishes.edit', '$dish') }}">Edit</a></td>
+                <td>
+                    @if($item->available) 
+                    Disponibile 
 
+                    @endif
+
+                    @if(!$item->available) 
+                    Non Disponibile 
+                    
+                    @endif
+                </td>
+                
+                <td><a class="btn btn-primary me-3" href="{{ route('admin.dishes.edit', $item) }}">Edit</a></td>
+                <td>
+                    <form method="POST" action="{{ route('admin.dishes.changeState', $item) }}">
+                        @csrf
+                        @method('put')
+                        <button>Disponibilità</button>
+                        
+                    </form>
+                </td>
     @endforeach
             </tr>
         

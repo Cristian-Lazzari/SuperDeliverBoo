@@ -62,7 +62,7 @@ class DishController extends Controller
         $newDish->name         = $data['name'];
         $newDish->price   = $data['price'];
         $newDish->description     = $data['description'];
-        $newDish->avaible       = $data['avaible'];
+        $newDish->available       = $data['available'];
         $newDish->restaurant_id       = 1;
         $newDish->user_id       = $newDish->restaurant_id;
 
@@ -89,18 +89,11 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Dish $dish, Request $request)
+    public function edit($id)
     {
-        // Trova il piatto corrispondente all'ID richiesto e al ristorantedell'utente autenticato
-        $dish = User::find(auth()->user()->id)
-            ->restaurant
-            ->dishes
-            ->find($request->route()->dish);
+        $dish = Dish::where('id', $id)->firstOrFail();
 
-        // Se l'dish non esiste o non fa parte dello user autenticato, restituisci 401      Unauthorized
-        if (!$dish) {
-            abort(401, 'Unauthorized');
-        }
+        if (Auth::id() !== $dish->user_id) abort(403); 
 
         return view('admin.dishes.edit', compact('dish'));
     }
@@ -112,19 +105,47 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, )
     {
-        //
-    }
+        $dish = dish::where('id', $id)->firstOrFail();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        if (Auth::id() !== $dish->user_id) abort(403);
+
+        // validare i dati del form
+        //$request->validate($this->validations, $this->validation_messages);
+
+        $data = $request->all();
+
+
+        // aggiornare i dati nel db se validi
+        $dish->name        = $data['name'];
+        $dish->description  = $data['description'];
+        $dish->price    = $data['price'];
+        $dish->update();
+
+        // ridirezionare su una rotta di tipo get
+        return to_route('admin.dishes.show', ['dish' => $dish]);
     }
+        public function changeState (Request $request, $id, ) {
+            $dish = dish::where('id', $id)->firstOrFail();
+
+            if (Auth::id() !== $dish->user_id) abort(403);
+    
+            // validare i dati del form
+            //$request->validate($this->validations, $this->validation_messages);
+    
+            $data = $request->all();
+    
+    
+            if($dish->available) {
+                $dish->available = false;
+           
+            } else {
+                $dish->available = true;
+            }
+            $dish->update();
+    
+            $dishes = Dish::where('user_id', Auth::id())->paginate(5);
+            return view('admin.dishes.index', compact('dishes'));        
+        }
 }

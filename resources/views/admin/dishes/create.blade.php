@@ -61,12 +61,12 @@
         @enderror
     </div>
 {{--    <div class="mb-3">
-        <label for="avaible">
+        <label for="available">
             Disponibilità
         </label>
-     <input type="checkbox" name="avaible" id="avaible">
+     <input type="checkbox" name="available" id="available">
     </div> --}}
-    <select name="avaible" id="avaible">
+    <select name="available" id="available">
         <option value="1">Si</option>
         <option value="0">No</option>
     </select>

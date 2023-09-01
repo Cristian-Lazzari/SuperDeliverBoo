@@ -24,7 +24,7 @@ class DishesTableSeeder extends Seeder
                 // $dish->image = 'https://picsum.photos/id/' . rand(1, 1080) . '/500/350';
                 $dish->description = $faker->paragraph(rand(2, 10), true);
                 $dish->price = $faker->randomFloat(2, 5, 25);
-                $dish->avaible = $faker->boolean();
+                $dish->available = $faker->boolean();
 
                 $dish->save();
             }

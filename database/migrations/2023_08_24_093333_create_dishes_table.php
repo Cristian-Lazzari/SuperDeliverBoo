@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('name', 50)->required();
             $table->string('image')->nullable();
             $table->string('price', 10);
-            $table->boolean('avaible')->nullable();
+            $table->boolean('available')->nullable();
             $table->text('description', 250);
         });
     }

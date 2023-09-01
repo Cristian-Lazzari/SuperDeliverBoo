@@ -28,6 +28,7 @@ Route::middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/', [AdminPageController::class, 'dashboard'])->name('dashboard');
         Route::resource('restaurants', RestaurantController::class);
+        Route::put('/dishes/{dishes}/changeState',[DishController::class, 'changeState'])->name('dishes.changeState');
         Route::resource('dishes', DishController::class);
 
 });
@@ -40,6 +41,7 @@ Route::middleware('auth')
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 require __DIR__.'/auth.php';
 

@@ -1,11 +1,10 @@
 <?php
 
+use App\Http\Controllers\Api\Orders\OrderController;
+use App\Http\Controllers\Api\RestaurantController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\LeadController;
-use App\Http\Controllers\Api\PostController;
-use App\Http\Controllers\Api\CategoryController;
-
+use App\Http\Controllers\Api\TypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +21,11 @@ use App\Http\Controllers\Api\CategoryController;
 //     return $request->user();
 // });
 
-Route::get('posts', [PostController::class, 'index'])->name('api.posts.index'); // nomesito/api/posts
-Route::get('posts/random', [PostController::class, 'random'])->name('api.posts.random');
-Route::get('posts/{post}', [PostController::class, 'show'])->name('api.posts.show');
+//Route::get('/restaurants', [RestaurantController::class, 'index']);
+//Route::get('/restaurants/{restaurant}/dishes', [RestaurantController::class, 'getDishes']);
+//Route::get('/restaurants/{slug}', [RestaurantController::class, 'show']);
 
-Route::get('categories', [CategoryController::class, 'index'])->name('api.categories.index'); // nomesito/api/categories
+Route::get('/types', [TypeController::class, 'index']);
 
-Route::post('leads/', [LeadController::class, 'store'])->name('api.leads.store');
+// Route::get('/orders/generate', [OrderController::class, 'generate']);
+//Route::post('/payment', [OrderController::class, 'getInfoCustomer']);

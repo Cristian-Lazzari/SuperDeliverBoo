@@ -8,6 +8,8 @@
 {{$restaurant->partita_iva}}
 <a href="{{route('admin.dishes.index')}}">Piatti index</a>
 <a href="{{route('admin.dishes.create')}}">Piatti create</a>
+<a href="{{route('admin.orders.index')}}">Ordini Index</a>
+
 
 
 

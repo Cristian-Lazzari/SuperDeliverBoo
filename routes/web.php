@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\DishController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\RestaurantController;
 use App\Http\Controllers\Admin\PageController as AdminPageController;
@@ -28,10 +29,10 @@ Route::middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/', [AdminPageController::class, 'dashboard'])->name('dashboard');
         Route::resource('restaurants', RestaurantController::class);
-        Route::put('/dishes/{dishes}/changeState',[DishController::class, 'changeState'])->name('dishes.changeState');
+        Route::put('/dishes/{dishes}/changeState', [DishController::class, 'changeState'])->name('dishes.changeState');
         Route::resource('dishes', DishController::class);
-
-});
+        Route::resource('orders', OrderController::class);
+    });
 
 Route::middleware('auth')
     ->name('admin.')
@@ -40,8 +41,7 @@ Route::middleware('auth')
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+    });
 
 
-require __DIR__.'/auth.php';
-
+require __DIR__ . '/auth.php';

@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id')->nullable();
             $table->string('name', 50)->required();
             $table->string('surname', 50)->required();
             $table->string('phone', 20)->required();
@@ -22,6 +23,7 @@ return new class extends Migration
             $table->string('status', 100)->required();
             $table->string('total_price', 100)->required();
             $table->string('time')->required();
+            $table->timestamps();
         });
     }
 

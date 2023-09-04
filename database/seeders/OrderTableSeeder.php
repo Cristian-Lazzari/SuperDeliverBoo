@@ -22,6 +22,7 @@ class OrderTableSeeder extends Seeder
 
                 $order = new Order;
 
+                $order->user_id = 1;
                 $order->name = $faker->firstName();
                 $order->surname = $faker->lastName();
                 $order->phone =  $faker->phoneNumber();

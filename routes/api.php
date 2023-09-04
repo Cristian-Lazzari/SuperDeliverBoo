@@ -1,10 +1,9 @@
 <?php
 
-use App\Http\Controllers\Api\Orders\OrderController;
 use App\Http\Controllers\Api\RestaurantController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\CategoryController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\TypeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +24,8 @@ use App\Http\Controllers\Api\TypeController;
 //Route::get('/restaurants/{restaurant}/dishes', [RestaurantController::class, 'getDishes']);
 //Route::get('/restaurants/{slug}', [RestaurantController::class, 'show']);
 
-Route::get('/types', [TypeController::class, 'index']);
+Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/restaurants', [RestaurantController::class, 'index']);
 
 // Route::get('/orders/generate', [OrderController::class, 'generate']);
 //Route::post('/payment', [OrderController::class, 'getInfoCustomer']);

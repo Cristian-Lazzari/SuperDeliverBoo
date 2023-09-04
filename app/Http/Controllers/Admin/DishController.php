@@ -93,7 +93,7 @@ class DishController extends Controller
     {
         $dish = Dish::where('id', $id)->firstOrFail();
 
-        if (Auth::id() !== $dish->user_id) abort(403); 
+        if (Auth::id() !== $dish->user_id) abort(403);
 
         return view('admin.dishes.edit', compact('dish'));
     }
@@ -105,7 +105,7 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id, )
+    public function update(Request $request, $id,)
     {
         $dish = dish::where('id', $id)->firstOrFail();
 
@@ -124,28 +124,28 @@ class DishController extends Controller
         $dish->update();
 
         // ridirezionare su una rotta di tipo get
-        return to_route('admin.dishes.show', ['dish' => $dish]);
+        return to_route('admin.dishes.index', ['dish' => $dish]);
     }
-        public function changeState (Request $request, $id, ) {
-            $dish = dish::where('id', $id)->firstOrFail();
+    public function changeState(Request $request, $id,)
+    {
+        $dish = dish::where('id', $id)->firstOrFail();
 
-            if (Auth::id() !== $dish->user_id) abort(403);
-    
-            // validare i dati del form
-            //$request->validate($this->validations, $this->validation_messages);
-    
-            $data = $request->all();
-    
-    
-            if($dish->available) {
-                $dish->available = false;
-           
-            } else {
-                $dish->available = true;
-            }
-            $dish->update();
-    
-            $dishes = Dish::where('user_id', Auth::id())->paginate(5);
-            return view('admin.dishes.index', compact('dishes'));        
+        if (Auth::id() !== $dish->user_id) abort(403);
+
+        // validare i dati del form
+        //$request->validate($this->validations, $this->validation_messages);
+
+        $data = $request->all();
+
+
+        if ($dish->available) {
+            $dish->available = false;
+        } else {
+            $dish->available = true;
         }
+        $dish->update();
+
+        $dishes = Dish::where('user_id', Auth::id())->paginate(5);
+        return view('admin.dishes.index', compact('dishes'));
+    }
 }

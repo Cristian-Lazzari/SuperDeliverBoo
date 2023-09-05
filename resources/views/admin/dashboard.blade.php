@@ -2,13 +2,13 @@
 
 @section('contents')
 {{$restaurant->id}}
-{{$restaurant->activity_name}}
-{{$restaurant->address}}
-{{$restaurant->description}}
-{{$restaurant->partita_iva}}
-<a href="{{route('admin.dishes.index')}}">Piatti index</a>
-<a href="{{route('admin.dishes.create')}}">Piatti create</a>
-<a href="{{route('admin.orders.index')}}">Ordini Index</a>
+<h1>{{$restaurant->activity_name}}</h1>
+{{$restaurant->address}} <br>
+{{$restaurant->description}} <br>
+{{$restaurant->partita_iva}} <br>
+<a class="btn-primary btn" href="{{route('admin.dishes.index')}}">Piatti index</a>
+<a class="btn-danger btn" href="{{route('admin.dishes.create')}}">Piatti create</a>
+<a class="btn-warning btn" href="{{route('admin.orders.index')}}">Ordini Index</a>
 
 
 

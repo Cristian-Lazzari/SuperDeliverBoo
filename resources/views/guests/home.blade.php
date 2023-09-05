@@ -16,7 +16,7 @@
 
         <style>
             .mybtn{
-                background-color: blue;
+                background-color: #F5C332;
                 padding: .7rem;
                 border-radius: 7px;
                 color: white;
@@ -24,10 +24,16 @@
             }
             .container{
                 padding: 1rem;
-                width: 900px;
-                margin: 0 auto;
                 display: flex;
-                gap: 1rem
+                gap: 1rem;
+                background-color: #0d1525;
+                
+            }
+
+            body{
+                background-image: url('https://siviaggia.it/wp-content/uploads/sites/2/2019/05/canale-1217x694-1.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
             }
         </style>
     </head>

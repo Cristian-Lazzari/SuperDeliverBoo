@@ -23,7 +23,7 @@ class RestaurantController extends Controller
 
 
     public function index()
-    {
+    { 
         $dishes = Dish::all();
 
         return view('admin.dashboard', compact('dishes'));
@@ -37,21 +37,7 @@ class RestaurantController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate($this->validations);
 
-        $data = $request->all();
-
-        $newRestaurant = new Restaurant();
-        
-        $newRestaurant->activity_name = $data['title'];
-        $newRestaurant->description = $data['description'];
-        $newRestaurant->address = $data['address'];
-        $newRestaurant->partita_iva = $data['price'];
-        
-        $newRestaurant->save();
-
-        
-        return redirect()->route('restaurants.show', ['restaurant' => $newRestaurant->id]);
     }
 
     public function show(Dish $dish)

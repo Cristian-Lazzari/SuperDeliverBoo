@@ -37,7 +37,7 @@ class RestaurantsTableSeeder extends Seeder
 
     //         }
     //     }
-    // }
+    // } 
 
         public function run()
         {

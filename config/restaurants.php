@@ -165,6 +165,6 @@ return $restaurants = [
         "description" => "cinese",
         "address" => "Piazza Venezia 1",
         "partita_iva" => $faker->regexify('[0-4]{11}'),
-
+ 
     ],
 ];

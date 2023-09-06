@@ -59,7 +59,7 @@
                             </div>
 
                             <div class="row mb-4">
-                                <label class="col-md-4 col-form-label text-md-right">Descrizione</label>
+                                <label class="col-md-4 col-form-label text-md-right">Nome attività</label>
                                 <div class="col-md-6">
                                     <input type="text" maxlength="100" required class="form-control @error('activity_name') is-invalid @enderror"
                                         name="activity_name">
@@ -71,7 +71,7 @@
                                 </div>
                             </div>
                             <div class="row mb-4">
-                                <label class="col-md-4 col-form-label text-md-right">Nome attività</label>
+                                <label class="col-md-4 col-form-label text-md-right">Descrizione</label>
                                 <div class="col-md-6">
                                     <input type="text" maxlength="100" required class="form-control @error('description') is-invalid @enderror"
                                         name="description">

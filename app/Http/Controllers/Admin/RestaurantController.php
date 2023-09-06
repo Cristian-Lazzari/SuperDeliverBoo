@@ -3,18 +3,24 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class RestaurantController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    private $validations = [
+        'activity_name' => 'required|string|max:255',
+        'description' => 'required|min:3|max:1000',
+        'address' => 'required|string|max:1000',
+        'partita_iva' => 'required|integer|max:255',
+    ];
+
+
     public function index()
     {
-        //
+
     }
 
     /**
@@ -35,18 +41,12 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+ 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        return view('restaurant.show', compact('dish'));        
     }
 
     /**

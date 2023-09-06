@@ -20,7 +20,7 @@ class CategoriesTableSeeder extends Seeder
                 'title'      => 'pizzeria',
             ],
             [
-                'title'      => 'sushi',
+                'title'      => 'giapponese',
             ],
             [
                 'title'      => 'trattoria',
@@ -29,16 +29,7 @@ class CategoriesTableSeeder extends Seeder
                 'title'      => 'gelateria',
             ],
             [
-                'title'      => 'hamburgeria',
-            ],
-            [
                 'title'      => 'fast-food',
-            ],
-            [
-                'title'      => 'panineria',
-            ],
-            [
-                'title'      => 'panineria',
             ],
             [
                 'title'      => 'indiano',
@@ -46,10 +37,6 @@ class CategoriesTableSeeder extends Seeder
             [
                 'title'      => 'cinese',
             ],
-            [
-                'title'      => 'africano',
-            ],
-
 
         ];
 
@@ -58,3 +45,4 @@ class CategoriesTableSeeder extends Seeder
         }
     }
 }
+ 

@@ -15,27 +15,51 @@ class RestaurantsTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run(Faker $faker)
-    { {
+    // public function run(Faker $faker)
+    // { {
 
 
-            for ($i = 0; $i < 50; $i++) {
+    //         for ($i = 0; $i < 50; $i++) {
 
-                $restaurant = new Restaurant;
+    //             $restaurant = new Restaurant;
 
 
-                $restaurant->activity_name = 'main';
+    //             $restaurant->activity_name = 'main';
 
-                // $restaurant->image = 'https://picsum.photos/id/' . rand(1, 1080) . '/500/350';
-                $restaurant->description = $faker->paragraph(rand(2, 10), true);
-                $restaurant->address = $faker->word(2);
-                $restaurant->partita_iva = $faker->regexify('[0-4]{11}');
+    //             // $restaurant->image = 'https://picsum.photos/id/' . rand(1, 1080) . '/500/350';
+    //             $restaurant->description = $faker->paragraph(rand(2, 10), true);
+    //             $restaurant->address = $faker->word(2);
+    //             $restaurant->partita_iva = $faker->regexify('[0-4]{11}');
 
-                $restaurant->save();
+    //             $restaurant->save();
 
-                // associate a random number of technologies to each restaurant
+    //             // associate a random number of technologies to each restaurant
+
+    //         }
+    //     }
+    // }
+
+        public function run()
+        {
+            $restaurants = config('restaurants');
+
+            foreach($restaurants as $arrRestaurants) {
+
+                Restaurant::create($arrRestaurants);
 
             }
+
+
         }
-    }
+
+
+
+
+
+
+
+
+
+
+
 }

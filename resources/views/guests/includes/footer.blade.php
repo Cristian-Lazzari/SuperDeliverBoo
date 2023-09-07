@@ -1,5 +1,4 @@
-<!-- Remove the container if you want to extend the Footer to full width. -->
-<div class="container my-5">
+<div class=" my-5">
 
     <footer class="text-center text-lg-start" style="background-color: #212529;">
       <div class="container d-flex justify-content-center py-5">
@@ -17,12 +16,12 @@
         </button>
       </div>
   
-      <!-- Copyright -->
+      
       <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
         © 2023 Copyright:
-        <a class="text-white" href="https://mdbootstrap.com/">Boolean Student's</a>
+        <a class="text-white" href="https://boolean.careers/corso/full-stack-web-development">Boolean Student's</a>
       </div>
-      <!-- Copyright -->
+      
     </footer>
     
   </div>

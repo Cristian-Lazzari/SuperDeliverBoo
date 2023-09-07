@@ -13,7 +13,7 @@
 
 
 
-<div class="row row-cols-3 p-4">
+{{-- <div class="row row-cols-3 p-4">
         
     <table class="table table-striped">
         <thead>
@@ -51,7 +51,7 @@
             </tbody>
         @endforeach
     </table>
-</div>
+</div> --}}
     
 @endsection
 
@@ -59,6 +59,6 @@
 
 {{-- @include('admin.restaurants.edit') --}}
 
-@endsection
+{{-- @endsection --}}
 
 

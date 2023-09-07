@@ -25,6 +25,8 @@ class DishesTableSeeder extends Seeder
                 $dish->description = $faker->paragraph(rand(2, 10), true);
                 $dish->price = $faker->randomFloat(2, 5, 25);
                 $dish->available = $faker->boolean();
+                $dish->counter = 0;
+
 
                 $dish->save();
             }

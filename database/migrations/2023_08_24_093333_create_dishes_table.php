@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('price', 10);
             $table->boolean('available')->nullable();
+            $table->tinyInteger('counter')->nullable();
             $table->text('description', 250);
         });
     }

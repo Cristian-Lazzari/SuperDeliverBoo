@@ -41,4 +41,13 @@ class RestaurantController extends Controller
             'restaurants' => $restaurants
         ]);
     }
+    public function show($id)
+    {
+        $restaurant = Restaurant::with('categories', 'dishes')->where('id', $id)->first();
+
+        return response()->json([
+            'success'   => $restaurant ? true : false,
+            'restaurant'   => $restaurant,
+        ]);
+    }
 }

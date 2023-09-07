@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\RestaurantController;
 use App\Http\Controllers\Api\CategoryController;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/restaurants', [RestaurantController::class, 'index']);
+Route::get('restaurants/{id}', [RestaurantController::class, 'show'])->name('api.restaurants.show');
+Route::post('/orders', [OrderController::class, 'store'])->name('api.orders.store');
 
 // Route::get('/orders/generate', [OrderController::class, 'generate']);
 //Route::post('/payment', [OrderController::class, 'getInfoCustomer']);

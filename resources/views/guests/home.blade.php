@@ -31,7 +31,7 @@
             }
 
             body{
-                background-image: url('https://siviaggia.it/wp-content/uploads/sites/2/2019/05/canale-1217x694-1.jpg');
+                background-image: url('https://a.travel-assets.com/findyours-php/viewfinder/images/res70/157000/157043-Palazzo-Del-Municipio.jpg');
                 background-repeat: no-repeat;
                 background-size: cover;
             }

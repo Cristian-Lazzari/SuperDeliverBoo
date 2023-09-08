@@ -1,16 +1,16 @@
-@extends('admin.layouts.base')
+{{-- @extends('admin.layouts.base')
 
 @section('contents')
-{{$restaurant->id}}
-<h1>{{$restaurant->activity_name}}</h1>
-{{$restaurant->address}} <br>
-{{$restaurant->description}} <br>
-{{$restaurant->partita_iva}} <br>
-<a class="btn-primary btn" href="{{route('admin.dishes.index')}}">Piatti index</a>
-<a class="btn-danger btn" href="{{route('admin.dishes.create')}}">Piatti create</a>
-<a class="btn-warning btn" href="{{route('admin.orders.index')}}">Ordini Index</a>
+    {{$restaurant->id}}
+    <h1>{{$restaurant->activity_name}}</h1>
+    {{$restaurant->address}} <br>
+    {{$restaurant->description}} <br>
+    {{$restaurant->partita_iva}} <br>
+    <a class="btn-primary btn" href="{{route('admin.dishes.index')}}">Piatti index</a>
+    <a class="btn-danger btn" href="{{route('admin.dishes.create')}}">Piatti create</a>
+    <a class="btn-warning btn" href="{{route('admin.orders.index')}}">Ordini Index</a>
 
-
+@endsection --}}
 
 
 {{-- <div class="row row-cols-3 p-4">
@@ -53,7 +53,7 @@
     </table>
 </div> --}}
     
-@endsection
+
 
 
 
@@ -62,3 +62,34 @@
 {{-- @endsection --}}
 
 
+@extends('admin.layouts.base')
+
+@section('contents')
+
+    <div class="bg">
+        <div class="container">
+            {{-- <h1>{{$restaurant->id}}</h1> --}}
+
+            <header>
+                
+                <div><h2>INDIRIZZO: <h3>{{$restaurant->address}}</h3> </h2></div>
+                <div><h2>DESCRIZIONE: <h3>{{$restaurant->description}}</h3> </h2></div>
+                <div><h2>P.IVA: <h3>{{$restaurant->partita_iva}}</h3> </h2></div>
+            </header>
+
+
+            <main>
+                <div><h1 style="text-align:center; margin-top:20px">{{$restaurant->activity_name}}</h1></div>
+            </main>
+                
+                
+            <footer style="display:flex; justify-content:center; margin-top:40px; gap:1rem">
+                <a class="btn-primary btn" href="{{route('admin.dishes.index')}}">Piatti index</a>
+                <a class="btn-danger btn" href="{{route('admin.dishes.create')}}">Piatti create</a>
+                <a class="btn-warning btn" href="{{route('admin.orders.index')}}">Ordini Index</a>
+            </footer>              
+
+
+        </div>
+    </div>
+@endsection

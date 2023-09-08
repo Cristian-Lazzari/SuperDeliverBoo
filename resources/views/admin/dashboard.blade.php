@@ -71,15 +71,18 @@
             {{-- <h1>{{$restaurant->id}}</h1> --}}
 
             <header>
-                
+                <div><h1 style="text-align:center; margin-top:20px">{{$restaurant->activity_name}}</h1></div>
+
+            </header>
+
+            <div class="jumbotron">
+                <img src="https://it.ooni.com/cdn/shop/articles/Margherita-9920.jpg?crop=center&height=800&v=1644590028&width=800" alt="">
+            </div>
+            
+            <main>
                 <div><h2>INDIRIZZO: <h3>{{$restaurant->address}}</h3> </h2></div>
                 <div><h2>DESCRIZIONE: <h3>{{$restaurant->description}}</h3> </h2></div>
                 <div><h2>P.IVA: <h3>{{$restaurant->partita_iva}}</h3> </h2></div>
-            </header>
-
-
-            <main>
-                <div><h1 style="text-align:center; margin-top:20px">{{$restaurant->activity_name}}</h1></div>
             </main>
                 
                 

@@ -4,7 +4,7 @@
 
     
 
-    <table>
+    {{-- <table>
        
         <tr>
             <th>NOME</th>
@@ -17,35 +17,81 @@
        
             <tr>
                 @foreach ($dishes as $item)
-                <td>{{$item->name}}</td>
-                <td>{{$item->description}}</td>
-                <td>{{$item->price}}</td>
-                <td>
-                    @if($item->available) 
-                    Disponibile 
+                    <td>{{$item->name}}</td>
+                    <td>{{$item->description}}</td>
+                    <td>{{$item->price}}</td>
+                    <td>
+                        @if($item->available) 
 
-                    @endif
+                            Disponibile 
 
-                    @if(!$item->available) 
-                    Non Disponibile 
-                    
-                    @endif
-                </td>
-                
-                <td><a class="btn btn-primary me-3" href="{{ route('admin.dishes.edit', $item) }}">Edit</a></td>
-                <td>
-                    <form method="POST" action="{{ route('admin.dishes.changeState', $item) }}">
-                        @csrf
-                        @method('put')
-                        <button>Disponibilità</button>
+                        @endif
+
+                        @if(!$item->available)
+
+                            Non Disponibile 
                         
-                    </form>
-                </td>
-    @endforeach
+                        @endif
+                    </td>
+                    
+                    <td><a class="btn btn-primary me-3" href="{{ route('admin.dishes.edit', $item) }}">Edit</a></td>
+                    <td>
+                        <form method="POST" action="{{ route('admin.dishes.changeState', $item) }}">
+                            @csrf
+                            @method('put')
+                            <button>Disponibilità</button>
+                            
+                        </form>
+                    </td>
+                @endforeach
             </tr>
         
-    </table>
+    </table> --}}
     
+
+
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">NOME</th>
+            <th scope="col">DESCRIZIONE</th>
+            <th scope="col">PRICE</th>
+            <th scope="col">VISIBILITÀ</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @foreach ($dishes as $item)
+                    <td>{{$item->name}}</td>
+                    <td>{{$item->description}}</td>
+                    <td>{{$item->price}}</td>
+                    <td>
+                        @if($item->available) 
+
+                            Disponibile 
+
+                        @endif
+
+                        @if(!$item->available)
+
+                            Non Disponibile 
+                        
+                        @endif
+                    </td>
+                    <td><a class="btn btn-primary me-3" href="{{ route('admin.dishes.edit', $item) }}">Edit</a></td>
+                    <td>
+                        <form method="POST" action="{{ route('admin.dishes.changeState', $item) }}">
+                            @csrf
+                            @method('put')
+                            <button>Disponibilità</button>
+                            
+                        </form>
+                    </td>
+                @endforeach
+            </tr>
+         
+        </tbody>
+      </table>
 
 @endsection
 

@@ -1,11 +1,11 @@
-<section>
+<section style="border: 2px solid #1e75f7; border-radius: 20px 20px 20px 20px; padding: 20px; background-color:azure">
     <header>
         <h2>
             Profile Information
         </h2>
 
-        <p>
-            Update your account's profile information and email address.
+        <p style="color: salmon">
+            Modifica il nome dell'Attività e/o l'indirizzo Email
         </p>
     </header>
 
@@ -16,21 +16,29 @@
     <form method="post" action="{{ route('admin.profile.update') }}" class="mt-6 space-y-6">
         @csrf
         @method('patch')
-
+        {{-- Name
         <div>
             <label for="name">Name</label>
             <input id="name" name="name" type="text" value="{{ old('name', $user->name) }}" required />
             @error('name')
                 {{ $message }}
             @enderror
-        </div>
+        </div> --}}
 
-        <div>
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" value="{{ old('email', $user->email) }}" required />
+
+
+
+
+
+        {{-- Email --}}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Indirizzo Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ old('email', $user->email) }}" required>
             @error('email')
                 {{ $message }}
-            @enderror
+            @enderror 
+
+
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                 <div>
@@ -50,12 +58,33 @@
                 </div>
             @endif
         </div>
+        
 
+        {{-- <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" value="{{ old('email', $user->email) }}" required />
+            @error('email')
+                {{ $message }}
+            @enderror --}}
+        {{-- </div> --}}
+
+
+
+        {{-- Name --}}
+        <div class="mb-3">
+            <label for="name" class="form-label">Nome dell'Attività</label>
+            <input id="name" name="name" type="text" class="form-control" value="{{ old('name', $user->name) }}" required>
+            @error('name')
+                {{ $message }}
+            @enderror 
+
+        {{-- Button Save --}}
         <div class="flex items-center gap-4">
-            <button>Save</button>
+            <button type="submit" class="btn btn-primary" style="margin-top: 40px">Submit</button>
+
 
             @if (session('status') === 'profile-updated')
-                <p>Saved</p>
+                <p>Salvato</p>
             @endif
         </div>
     </form>

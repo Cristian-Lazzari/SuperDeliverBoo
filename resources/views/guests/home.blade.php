@@ -8,6 +8,9 @@
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
 
         <!-- Styles -->
@@ -23,7 +26,7 @@
                 color: white;
 
             }
-            .container{
+            .contain{
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -50,9 +53,16 @@
             }
         </style>
     </head>
+
+
+
+
+
+
+
   <body>
     {{-- Navbar --}}
-    <div class="container">
+    <div class="contain">
         <div class="title">
             <h1>Delive<span style="color: blue">Boo</span></h1>
         </div>
@@ -66,6 +76,28 @@
         
     </div>
     <div class="img"></div>
+
+    <footer style="background-color: #0D1525">
+        {{-- social --}}
+        <div class="row">
+            <div class="col-6">
+                <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 rounded-circle border-0" >
+                  <i class="fab fa-facebook-f"></i>
+                </button>
+                <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 rounded-circle border-0" >
+                  <i class="fab fa-youtube"></i>
+                </button>
+                <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 rounded-circle border-0" >
+                  <i class="fab fa-instagram"></i>
+                </button>
+                <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 rounded-circle border-0" >
+                  <i class="fab fa-twitter"></i>
+                </button>
+            </div>
+            {{-- Boolean sign --}}
+            <div class="col-6">ciao</div>
+        </div>
+    </footer>
     
   </body>
 </html>

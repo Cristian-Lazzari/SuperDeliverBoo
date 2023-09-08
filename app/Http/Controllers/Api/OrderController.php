@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Models\Dish;
 use App\Models\Order;
 use App\Models\DishOrder;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
@@ -28,7 +30,7 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->all();
+
 
         // validare i dati del Order
         // $validator = Validator::make($data, $this->validations);
@@ -41,36 +43,38 @@ class OrderController extends Controller
         //} 
 
         // salvare i dati del Order nel database
-        $total = 0;
+        // $total = 0;
         $data = $request->all();
 
-        $cart = $data['order'];
+        // $cart = $data['order'];
         //calcolare il totale dell'ordine
-        foreach ($cart as $elem) {
-            $dish = Dish::where('id', $elem['id'])->first();
-            $total += $dish->price * $elem['quantity'];
-        }
+        // foreach ($cart as $elem) {
+        //     $dish = Dish::where('id', $elem['id'])->first();
+        //     $total += $dish->price * $elem['quantity'];
+        // }
 
-        $data['total_price'] = $total;
+        // $data['total_price'] = $total;
 
         $newOrder = new Order();
-        $newOrder->user_id          = $data['user_id'];
+        $newOrder->user_id          = $data['restaurant_id'];
         $newOrder->name          = $data['name'];
+        $newOrder->restaurant_id          = $data['restaurant_id'];
+        $newOrder->status          = 1;
+        $newOrder->total_price          = 0;
         $newOrder->surname          = $data['surname'];
         $newOrder->phone          = $data['phone'];
         $newOrder->address         = $data['address'];
-        $newOrder->status          = $data['status'];
-        $newOrder->total_price          = $data['total_price'];
+        // $newOrder->total_price          = $data['total_price'];
         $newOrder->time       = $data['time'];
         $newOrder->save();
 
-        foreach ($cart as $elem) {
-            $item_order = new DishOrder();
-            $item_order->order_id = $newOrder->id;
-            $item_order->dish_id = $elem['id'];
-            $item_order->quantity_item = $elem['quantity'];
-            $item_order->save();
-        }
+        // foreach ($cart as $elem) {
+        //     $item_order = new DishOrder();
+        //     $item_order->order_id = $newOrder->id;
+        //     $item_order->dish_id = $elem['id'];
+        //     $item_order->quantity_item = $elem['quantity'];
+        //     $item_order->save();
+        // }
 
         // ritornare un valore di successo al frontend
         return response()->json([

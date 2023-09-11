@@ -4,7 +4,7 @@
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card  mb-5">
+                <div class="card mb-5">
                     <div class="card-header"><strong>Registrati!</strong></div>
 
                     <div class="card-body">
@@ -119,7 +119,7 @@
                                     <div>
                                         @foreach ($categories as $category)
                                             <div> 
-                                                <input id="category_id{{$category->id}}" class="@error($category->title) is-invalid @enderror category-checkbox"
+                                                <input  id="category_id{{$category->id}}" class="@error($category->title) is-invalid @enderror category-checkbox"
                                                     name="category_id[]" type="checkbox"  value="{{ $category->id }}">
                                                 <label for="category">
                                                 
@@ -135,7 +135,7 @@
 
                                 <div class="mb-4 row mb-0 text-center">
                                     <div class="col-md-6 w-100">
-                                        <button id="submit-btn" type="submit" class="btn btn-primary">
+                                        <button id="submit-btn" type="submit" class="btn btn-warning me-2">
                                             {{ __('Registrati') }}
                                         </button>
                                     </div>

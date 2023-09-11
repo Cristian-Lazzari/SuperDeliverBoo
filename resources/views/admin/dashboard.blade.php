@@ -66,29 +66,31 @@
 
 @section('contents')
 
-    <div class="bg">
+    <div style="background-size:cover; background-position:center;background-color:black;background-image:url('https://images.alphacoders.com/107/1079225.jpg')">
         <div class="container">
             {{-- <h1>{{$restaurant->id}}</h1> --}}
 
             <header>
-                <div><h1 style="text-align:center; margin-top:20px; font-size:70px"><strong>{{$restaurant->activity_name}}</strong></h1></div>
+                <div><h1 style="text-align:center;color:rgba(255, 187, 0, 0.938); margin-top:20px; font-size:70px"><strong>{{$restaurant->activity_name}}</strong></h1></div>
 
             </header>
 
-            <div class="jumbotron row" style="opacity: 0.9; background-image:url('https://www.borneylegnami.com/repo/immagini/anteprime/xl/rovere-lavorato-7_b7bcb957ea_.jpg')">
+            <div class="jumbotron row" style="opacity: 0.9; background-color:rgb(255, 255, 255)">
  
-                <img src="https://it.ooni.com/cdn/shop/articles/Margherita-9920.jpg?crop=center&height=800&v=1644590028&width=800" alt="" class="col-6">
+                <img src="{{$restaurant->image}}" alt="" class="col-6">
 
 
                 <div class="col-6" style="text-align: center">
                     <div>
-                        <div><h2 style="font-size: 50px; color:rgba(255, 255, 0, 0.888)"><strong>Indirizzo:</strong> <h3 style="font-size: 40px">{{$restaurant->address}}</h3> </h2></div>
-                        <div><h2 style="font-size: 50px; color:rgba(255, 255, 0, 0.888)"><strong>Descrizione:</strong> <h3 style="font-size: 40px">{{$restaurant->description}}</h3> </h2></div>
-                        <div><h2 style="font-size: 50px; color:rgba(255, 255, 0, 0.888)"><strong>Partita Iva:</strong> <h3 style="font-size: 40px">{{$restaurant->partita_iva}}</h3> </h2></div>
+                        <div><h2 style="font-size: 50px; color:rgba(255, 187, 0, 0.938)"><strong>Indirizzo:</strong> <h3 style="font-size: 40px">{{$restaurant->address}}</h3> </h2></div>
+                        <hr>
+                        <div><h2 style="font-size: 50px; color:rgba(255, 187, 0, 0.938)"><strong>Descrizione:</strong> <h3 style="font-size: 40px">{{$restaurant->description}}</h3> </h2></div>
+                        <hr>
+                        <div><h2 style="font-size: 50px; color:rgba(255, 187, 0, 0.938)"><strong>Partita Iva:</strong> <h3 style="font-size: 40px">{{$restaurant->partita_iva}}</h3> </h2></div>
                     </div>
                     <div style="margin-top:80px;display:flex; justify-content:center; gap:1rem">
-                        <a class="btn-primary btn" href="{{route('admin.dishes.index')}}">Piatti</a>
-                        <a class="btn-danger btn" href="{{route('admin.dishes.create')}}">Crea Piatti</a>
+                        <a class="btn-primary btn" href="{{route('admin.dishes.index')}}">Menù piatti</a>
+                        <a class="btn-danger btn" href="{{route('admin.dishes.create')}}">Crea un piatto</a>
                         <a class="btn-warning btn" href="{{route('admin.orders.index')}}">Ordini</a>
                     </div>
 
@@ -105,3 +107,8 @@
         </div>
     </div>
 @endsection
+<style>
+    style {
+        background-size: c
+    }
+</style>

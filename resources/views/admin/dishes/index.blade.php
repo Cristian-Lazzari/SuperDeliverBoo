@@ -55,7 +55,7 @@
           <tr>
             <th scope="col">NOME</th>
             <th scope="col">DESCRIZIONE</th>
-            <th scope="col">PRICE</th>
+            <th scope="col">PREZZO</th>
             <th scope="col">VISIBILITÀ</th>
           </tr>
         </thead>

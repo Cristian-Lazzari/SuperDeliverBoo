@@ -87,9 +87,9 @@
                         <div><h2 style="font-size: 50px; color:rgba(255, 255, 0, 0.888)"><strong>P.IVA:</strong> <h3 style="font-size: 40px">{{$restaurant->partita_iva}}</h3> </h2></div>
                     </div>
                     <div style="margin-top:80px;display:flex; justify-content:center; gap:1rem">
-                        <a class="btn-primary btn" href="{{route('admin.dishes.index')}}">Piatti index</a>
-                        <a class="btn-danger btn" href="{{route('admin.dishes.create')}}">Piatti create</a>
-                        <a class="btn-warning btn" href="{{route('admin.orders.index')}}">Ordini Index</a>
+                        <a class="btn-primary btn" href="{{route('admin.dishes.index')}}">Piatti</a>
+                        <a class="btn-danger btn" href="{{route('admin.dishes.create')}}">Crea Piatti</a>
+                        <a class="btn-warning btn" href="{{route('admin.orders.index')}}">Ordini</a>
                     </div>
 
                 </div>

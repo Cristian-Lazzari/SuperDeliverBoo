@@ -5,14 +5,14 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card  mb-5">
-                    <div class="card-header">Registrati!</div>
+                    <div class="card-header"><strong>Registrati!</strong></div>
 
                     <div class="card-body">
                         <form id="formCreate" method="POST" action="{{ route('register') }}" enctype="multipart/form-data" novalidate>
                             @csrf
                             <div class="mb-4 row">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">Indirizzo Mail
+                                    class="col-md-4 col-form-label text-md-right">* Indirizzo Mail
                                 </label>
 
                                 <div class="col-md-6">
@@ -30,7 +30,7 @@
 
                             <div class="mb-4 row">
                                 <label for="password"
-                                    class="col-md-4 col-form-label text-md-right">Password
+                                    class="col-md-4 col-form-label text-md-right">* Password
                                 </label>
 
                                 <div class="col-md-6">
@@ -48,7 +48,7 @@
 
                             <div class="mb-4 row">
                                 <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-right">Conferma password
+                                    class="col-md-4 col-form-label text-md-right">* Conferma password
                                 </label>
 
                                 <div class="col-md-6">
@@ -59,7 +59,7 @@
                             </div>
 
                             <div class="row mb-4">
-                                <label class="col-md-4 col-form-label text-md-right">Nome attività</label>
+                                <label class="col-md-4 col-form-label text-md-right">* Nome attività</label>
                                 <div class="col-md-6">
                                     <input type="text" maxlength="100" required class="form-control @error('activity_name') is-invalid @enderror"
                                         name="activity_name">
@@ -71,7 +71,7 @@
                                 </div>
                             </div>
                             <div class="row mb-4">
-                                <label class="col-md-4 col-form-label text-md-right">Descrizione</label>
+                                <label class="col-md-4 col-form-label text-md-right">* Descrizione</label>
                                 <div class="col-md-6">
                                     <input type="text" maxlength="100" required class="form-control @error('description') is-invalid @enderror"
                                         name="description">
@@ -84,15 +84,14 @@
                             </div>
 
                             <div class="row mb-4">
-                                <label for="formFile" class="col-md-4 col-form-label text-md-right">Carica Immagine</label>
+                                <label for="formFile" class="col-md-4 col-form-label text-md-right">* Carica Immagine</label>
                                 <div class="col-md-6">
                                     <input class="form-control" type="file" id="formFile" name="restaurant_image">
                                 </div>
                             </div>
 
                             <div class="row mb-4">
-                                <label class="col-md-4 col-form-label text-md-right">
-                                    Indirizzo</label>
+                                <label class="col-md-4 col-form-label text-md-right">* Indirizzo</label>
                                 <div class="col-md-6">
                                     <input type="text" required
                                         class="form-control @error('address') is-invalid @enderror" name="address">
@@ -103,7 +102,7 @@
                             </div>
 
                             <div class="row mb-4">
-                                <label class="col-md-4 col-form-label text-md-right">Partita Iva</label>
+                                <label class="col-md-4 col-form-label text-md-right">* Partita Iva</label>
                                 <div class="col-md-6">
                                     <input type="text" id="Vat" pattern="[0-9]{11}" required class="form-control @error('partita_iva') is-invalid @enderror"
                                         name="partita_iva">
@@ -113,37 +112,39 @@
                                         <div id="errorDiv3" style="display: none; color: red;">La partita iva deve essere composta da minimo 11 caratteri.</div>
                                 </div>
                             </div>
-                            
+                            <hr>
+                            <div class="row mb-4">
+                                <label class="form-label d-flex justify-content-end  col-md-4 col-form-label text-md-right">* Categoria</label>
+                                <div class="mb-4 d-flex w-50 col-md-6">
+                                    <div>
+                                        @foreach ($categories as $category)
+                                            <div> 
+                                                <input id="category_id{{$category->id}}" class="@error($category->title) is-invalid @enderror category-checkbox"
+                                                    name="category_id[]" type="checkbox"  value="{{ $category->id }}">
+                                                <label for="category">
+                                                
+                                                    {{ $category->title }}
+                                                </label>
+                                            </div>
+                                        @endforeach
+                                        @error('category_id')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
 
-                            <label class="form-label mb-4 mt-4">Categoria</label>
-                            <div class="mb-4 d-flex w-50 ">
-                                <div>
-                                    @foreach ($categories as $category)
-                                        <div> 
-                                            <input id="category_id{{$category->id}}" class="@error($category->title) is-invalid @enderror category-checkbox"
-                                                   name="category_id[]" type="checkbox"  value="{{ $category->id }}">
-                                            <label for="category">
-                                               
-                                                {{ $category->title }}
-                                            </label>
-                                        </div>
-                                    @endforeach
-                                    @error('category_id')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
+                                <div class="mb-4 row mb-0 text-center">
+                                    <div class="col-md-6 w-100">
+                                        <button id="submit-btn" type="submit" class="btn btn-primary">
+                                            {{ __('Registrati') }}
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="mb-4 row mb-0 text-center">
-                                <div class="col-md-6 w-100">
-                                    <button id="submit-btn" type="submit" class="btn btn-primary">
-                                        {{ __('Registrati') }}
-                                    </button>
-                                </div>
-                            </div>
                         </form>
                         <div id="errorDiv" style="display: none; color: red;">Seleziona almeno una categoria</div>
-                        <p class="my-4"><b>Campo obbligatorio</b></p>
+                        <p class="my-4"><b>* Campo obbligatorio</b></p>
                     </div>
                 </div>
             </div>
@@ -184,3 +185,6 @@
     </script>
 @endsection
 
+<style>
+    
+</style>

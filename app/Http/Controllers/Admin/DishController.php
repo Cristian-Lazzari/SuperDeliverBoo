@@ -63,10 +63,10 @@ class DishController extends Controller
         $newDish->price   = $data['price'];
         $newDish->description     = $data['description'];
         $newDish->available       = $data['available'];
-        $newDish->restaurant_id       = $data['restaurant_id'];
+        $newDish->restaurant_id       = Auth::id();
         $newDish->counter       = 0;
 
-        $newDish->user_id       = $data['restaurant_id'];
+        $newDish->user_id       = Auth::id();
 
         $newDish->save();
 

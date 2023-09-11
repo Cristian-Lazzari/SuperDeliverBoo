@@ -25,10 +25,10 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/restaurants/{restaurant}/dishes', [RestaurantController::class, 'getDishes']);
 //Route::get('/restaurants/{slug}', [RestaurantController::class, 'show']);
 
-Route::get('/categories', [CategoryController::class, 'index']);
-Route::get('/restaurants', [RestaurantController::class, 'index']);
+Route::get('categories/', [CategoryController::class, 'index']);
+Route::get('restaurants/', [RestaurantController::class, 'index']);
 Route::get('restaurants/{id}', [RestaurantController::class, 'show'])->name('api.restaurants.show');
-Route::post('/orders', [OrderController::class, 'store'])->name('api.orders.store');
+Route::post('orders/', [OrderController::class, 'store'])->name('api.orders.store');
 
 // Route::get('/orders/generate', [OrderController::class, 'generate']);
 //Route::post('/payment', [OrderController::class, 'getInfoCustomer']);

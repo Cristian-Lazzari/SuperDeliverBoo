@@ -66,27 +66,32 @@
 
 @section('contents')
 
-    <div class="bg">
+<div class="card">
+
+    {{$restaurant->activity_name}}
+</div>
+{{-- <h1>{{$restaurant->id}}</h1> --}}
+
+    {{-- <div class="bg">
         <div class="container">
-            {{-- <h1>{{$restaurant->id}}</h1> --}}
 
             <header>
                 <div><h1 style="text-align:center; margin-top:20px">{{$restaurant->activity_name}}</h1></div>
 
             </header>
 
-            <div class="jumbotron">
-                <img src="https://it.ooni.com/cdn/shop/articles/Margherita-9920.jpg?crop=center&height=800&v=1644590028&width=800" alt="">
-            </div>
-            
+            <div class="jumbotron" style="width: 50%">
+                <img style="width: 100%" src="https://it.ooni.com/cdn/shop/articles/Margherita-9920.jpg?crop=center&height=800&v=1644590028&width=800" alt="">
             <main>
                 <div><h2>INDIRIZZO: <h3>{{$restaurant->address}}</h3> </h2></div>
                 <div><h2>DESCRIZIONE: <h3>{{$restaurant->description}}</h3> </h2></div>
                 <div><h2>P.IVA: <h3>{{$restaurant->partita_iva}}</h3> </h2></div>
-            </main>
+            </main></div>
+            
+            
                 
                 
-            <footer style="display:flex; justify-content:center; margin-top:40px; gap:1rem">
+            <footer style="display:flex; justify-content:center; margin:40px; gap:1rem">
                 <a class="btn-primary btn" href="{{route('admin.dishes.index')}}">Piatti index</a>
                 <a class="btn-danger btn" href="{{route('admin.dishes.create')}}">Piatti create</a>
                 <a class="btn-warning btn" href="{{route('admin.orders.index')}}">Ordini Index</a>
@@ -94,5 +99,5 @@
 
 
         </div>
-    </div>
+    </div> --}}
 @endsection

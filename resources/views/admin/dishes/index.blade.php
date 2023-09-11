@@ -60,8 +60,8 @@
           </tr>
         </thead>
         <tbody>
+            @foreach ($dishes as $item)
             <tr>
-                @foreach ($dishes as $item)
                     <td>{{$item->name}}</td>
                     <td>{{$item->description}}</td>
                     <td>{{$item->price}}</td>
@@ -87,8 +87,8 @@
                             
                         </form>
                     </td>
+                </tr>
                 @endforeach
-            </tr>
          
         </tbody>
       </table>

@@ -1,7 +1,7 @@
 <section style="border: 2px solid #FFCA2C; border-radius: 20px 20px 20px 20px; padding: 20px; background-color:azure">
     <header>
         <h2>
-            Update Password
+            Aggiornare la Password
         </h2>
 
         <p style="color: salmon">

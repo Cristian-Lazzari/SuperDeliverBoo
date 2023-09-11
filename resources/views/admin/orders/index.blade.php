@@ -5,7 +5,7 @@
 <div class="container-order container">
     <div class=" pt-4 ">
         <a class="btn btn-warning text-white me-3 fs-5" href="{{ route('admin.dashboard') }}">&larr;</a>
-        <h2 class="mt-4 text-center text-white-Dashboard  fs-1">Orders</h2>
+        <h2 class="mt-4 text-center text-white-Dashboard  fs-1">Ordini</h2>
 
         <div class="mt-5 container">
             <div class="row">

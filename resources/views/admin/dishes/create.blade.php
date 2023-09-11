@@ -71,6 +71,6 @@
             <option value="1">Si</option>
             <option value="0">No</option>
         </select>
-        <button class="btn btn-primary">Save</button>
+        <button class="btn btn-primary">Salva</button>
     </form>
 @endsection

@@ -1,7 +1,7 @@
 <section class="space-y-6" style="border: 2px solid red; border-radius: 20px 20px 20px 20px; padding: 20px; background-color:azure">
     <header>
         <h2>
-            Delete Account
+            Elimina Account
         </h2>
 
         <p style="color: salmon">

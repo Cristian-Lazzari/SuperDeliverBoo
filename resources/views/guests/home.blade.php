@@ -19,13 +19,7 @@
         </style>
 
         <style>
-            .mybtn{
-                background-color: #F5C332;
-                padding: .7rem;
-                border-radius: 7px;
-                color: white;
-
-            }
+            
             .square{
                 display: flex;
                 flex-direction: column;
@@ -35,8 +29,10 @@
                 height: 300px;
                 background-color: rgba(0, 0, 0, 0.4);
                 align-items: center;
-                margin: auto;
                 border-radius: 5%;
+                position: absolute;
+                left: 785px;
+                top:300px;
 
             }
 
@@ -54,11 +50,12 @@
 
             .img{
                 width: 100%;
-                height: 593px;
+                height: 845px;
                 background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
                 display: flex;
+            }
+            .z-index {
+                z-index: -1;
             }
         </style>
     </head>
@@ -69,52 +66,33 @@
 
 
 
-  <body>
-
-          {{-- carousel --}}
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="https://picsum.photos/200/300" class="d-block w-100" alt="...">
+    <body>
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="img-fluid d-block img" src="https://images7.alphacoders.com/293/293282.jpg" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="img-fluid d-block img" src="https://images6.alphacoders.com/327/327323.jpg" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img class="img-fluid d-block img" src="https://images7.alphacoders.com/293/293282.jpg" alt="Third slide">
+            </div>
+            </div>
+            <div class="square">
+                <div class="title">
+                    <h1>Delive<span style="color: blue">Boo</span></h1>
+                </div>
+                <div class="login">
+                    <a href="{{route('login')}}" class="btn btn-outline-warning me-2">Accedi</a>
+                    <a href="{{route('register')}}" class="btn btn-outline-warning me-2">Registrati</a>
+                </div>
+            </div> 
         </div>
-        <div class="carousel-item">
-          <img src="https://picsum.photos/200/300" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="https://picsum.photos/200/300" class="d-block w-100" alt="...">
-        </div>
-      </div>
-    </div>
-    
-    <div class="img">
+        
+        
 
-
-
-
-      <div class="square">
-
-        <div class="title">
-          <h1>Delive<span style="color: blue">Boo</span></h1>
-        </div>
-  
-  
-        <div class="login">
-            <a href="{{route('login')}}" class="mybtn">Accedi</a>
-            <a href="{{route('register')}}" class="mybtn">Registrati</a>
-        </div>
-      
-      
-      </div>  
-      
-      
-
-      
-      
-    </div>
-
-
-
-    <footer class=" text-center text-white" style="background-color: #0D1525">
+    <footer class="m-autotext-center text-center text-white" style="background-color: #0D1525">
         <!-- Grid container -->
         <div class="container p-2 pb-0">
           <!-- Section: Social media -->
@@ -167,6 +145,7 @@
     
   </body>
 </html>
+
 
 
 

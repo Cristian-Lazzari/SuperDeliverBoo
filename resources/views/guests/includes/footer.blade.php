@@ -1,10 +1,10 @@
-<div style="margin-top: 206px">
+<div style="margin-top: 428px">
 
     <footer class=" text-center text-white" style="background-color: #0D1525">
       <!-- Grid container -->
       <div class="container p-4 pb-0">
         <!-- Section: Social media -->
-        <section class="mb-4">
+        <section class="mb-2">
           <!-- Facebook -->
           <a class="btn btn-outline-light btn-floating m-1 rounded-circle" href="https://www.facebook.com/?locale=it_IT" role="button"
             ><i class="fab fa-facebook-f"></i

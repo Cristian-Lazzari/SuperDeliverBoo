@@ -10,7 +10,7 @@
 
     @vite('resources/js/app.js')
 </head>
-<body>
+<body style="background-repeat: no-repeat;background-color:black;opacity:0.8;background-image:url('https://images2.alphacoders.com/789/789701.jpg')">
     @include('guests.includes.header')
 
     <div class="containers">
@@ -22,4 +22,5 @@
     @include('guests.includes.footer')
 </body>
 </html>
+
 

@@ -82,9 +82,9 @@
 
                 <div class="col-6" style="text-align: center">
                     <div>
-                        <div><h2 style="font-size: 50px; color:rgba(255, 255, 0, 0.888)"><strong>INDIRIZZO:</strong> <h3 style="font-size: 40px">{{$restaurant->address}}</h3> </h2></div>
-                        <div><h2 style="font-size: 50px; color:rgba(255, 255, 0, 0.888)"><strong>DESCRIZIONE:</strong> <h3 style="font-size: 40px">{{$restaurant->description}}</h3> </h2></div>
-                        <div><h2 style="font-size: 50px; color:rgba(255, 255, 0, 0.888)"><strong>P.IVA:</strong> <h3 style="font-size: 40px">{{$restaurant->partita_iva}}</h3> </h2></div>
+                        <div><h2 style="font-size: 50px; color:rgba(255, 255, 0, 0.888)"><strong>Indirizzo:</strong> <h3 style="font-size: 40px">{{$restaurant->address}}</h3> </h2></div>
+                        <div><h2 style="font-size: 50px; color:rgba(255, 255, 0, 0.888)"><strong>Descrizione:</strong> <h3 style="font-size: 40px">{{$restaurant->description}}</h3> </h2></div>
+                        <div><h2 style="font-size: 50px; color:rgba(255, 255, 0, 0.888)"><strong>Partita Iva:</strong> <h3 style="font-size: 40px">{{$restaurant->partita_iva}}</h3> </h2></div>
                     </div>
                     <div style="margin-top:80px;display:flex; justify-content:center; gap:1rem">
                         <a class="btn-primary btn" href="{{route('admin.dishes.index')}}">Piatti</a>

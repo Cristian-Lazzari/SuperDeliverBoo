@@ -1,8 +1,8 @@
 @extends('guests.layouts.base')
 
-@section('contents')
-    <div style="display:flex; justify-content:center; align-items: center; width:100%; height:100%; margin-top:45px">
-        <form method="post" action="{{ route('login') }}" style="width: 70%; display:flex; flex-direction:column; ">
+@section('contents')  
+    <div style="display:flex; justify-content:center; align-items: center; width:100%; height:100%; margin-top:45px;">
+        <form method="post" action="{{ route('guests.home') }}" style="width: 70%; display:flex; flex-direction:column; ">
             @csrf
 
             <div class="mb-3">
@@ -42,7 +42,7 @@
             </a>
 
             <div style="display: flex; justify-content:center;margin-top:20px">
-               <button type="submit" class="btn btn-primary">Login</button> 
+               <button type="submit" class="btn btn-warning me-2">Login</button> 
             </div>
             
         </form>

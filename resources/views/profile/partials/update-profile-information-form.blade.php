@@ -1,7 +1,7 @@
 <section style="border: 2px solid #1e75f7; border-radius: 20px 20px 20px 20px; padding: 20px; background-color:azure">
     <header>
         <h2>
-            Profile Information
+            Informazioni Profilo
         </h2>
 
         <p style="color: salmon">
@@ -80,7 +80,7 @@
 
         {{-- Button Save --}}
         <div class="flex items-center gap-4">
-            <button type="submit" class="btn btn-primary" style="margin-top: 40px">Submit</button>
+            <button type="submit" class="btn btn-primary" style="margin-top: 40px">Modifica</button>
 
 
             @if (session('status') === 'profile-updated')

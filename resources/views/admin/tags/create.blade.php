@@ -2,7 +2,7 @@
 
 @section('contents')
 
-    <h1>Add new post</h1>
+    <h1>Aggiungi nuovo post</h1>
 
     {{-- @if ($errors->any())
         <div class="alert alert-danger">
@@ -81,7 +81,7 @@
             @enderror
         </div>
 
-        <button class="btn btn-primary">Save</button>
+        <button class="btn btn-primary">Salva</button>
     </form>
 
 @endsection

@@ -76,7 +76,7 @@
         <div class="container">
 
             <header>
-                <div><h1 style="text-align:center; margin-top:20px">{{$restaurant->activity_name}}</h1></div>
+                <div><h1 style="text-align:center;color:rgba(255, 187, 0, 0.938); margin-top:20px; font-size:70px"><strong>{{$restaurant->activity_name}}</strong></h1></div>
 
             </header>
 
@@ -101,3 +101,8 @@
         </div>
     </div> --}}
 @endsection
+<style>
+    style {
+        background-size: c
+    }
+</style>

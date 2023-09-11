@@ -49,13 +49,13 @@
     </table> --}}
     
 
-
+    <a class="btn btn-warning text-white me-3 fs-5" href="{{ route('admin.dashboard') }}">&larr;</a>
     <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">NOME</th>
             <th scope="col">DESCRIZIONE</th>
-            <th scope="col">PRICE</th>
+            <th scope="col">PREZZO</th>
             <th scope="col">VISIBILITÀ</th>
           </tr>
         </thead>

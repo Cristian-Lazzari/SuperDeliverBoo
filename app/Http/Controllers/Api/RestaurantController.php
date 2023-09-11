@@ -21,6 +21,7 @@ class RestaurantController extends Controller
     {
 
         $query = Restaurant::with(['categories']);
+        $categories = Category::all();
 
         if ($request->has('category_id')) {
             // con explode da 2,4,5 diventa [2,4,5]

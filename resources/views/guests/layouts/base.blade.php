@@ -13,8 +13,8 @@
 <body>
     @include('guests.includes.header')
 
-    <div class="container">
-        <main>
+    <div class="containers">
+        <main style="width: 100%">
             @yield('contents')
         </main>
     </div>

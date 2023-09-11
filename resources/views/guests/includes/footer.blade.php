@@ -1,27 +1,50 @@
-<div class=" my-5">
+<div style="margin-top: 206px">
 
-    <footer class="text-center text-lg-start" style="background-color: #212529;">
-      <div class="container d-flex justify-content-center py-5">
-        <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 rounded-circle border-0" style="background-color: #212529;">
-          <i class="fab fa-facebook-f"></i>
-        </button>
-        <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 rounded-circle border-0" style="background-color: #212529;">
-          <i class="fab fa-youtube"></i>
-        </button>
-        <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 rounded-circle border-0" style="background-color: #212529;">
-          <i class="fab fa-instagram"></i>
-        </button>
-        <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 rounded-circle border-0" style="background-color: #212529;">
-          <i class="fab fa-twitter"></i>
-        </button>
+    <footer class=" text-center text-white" style="background-color: #0D1525">
+      <!-- Grid container -->
+      <div class="container p-4 pb-0">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+          <!-- Facebook -->
+          <a class="btn btn-outline-light btn-floating m-1 rounded-circle" href="#!" role="button"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+    
+          <!-- Twitter -->
+          <a class="btn btn-outline-light btn-floating m-1 rounded-circle" href="#!" role="button"
+            ><i class="fab fa-twitter"></i
+          ></a>
+    
+          <!-- Google -->
+          <a class="btn btn-outline-light btn-floating m-1 rounded-circle" href="#!" role="button"
+            ><i class="fab fa-google"></i
+          ></a>
+    
+          <!-- Instagram -->
+          <a class="btn btn-outline-light btn-floating m-1 rounded-circle" href="#!" role="button"
+            ><i class="fab fa-instagram"></i
+          ></a>
+    
+          <!-- Linkedin -->
+          <a class="btn btn-outline-light btn-floating m-1 rounded-circle" href="#!" role="button"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+    
+          <!-- Github -->
+          <a class="btn btn-outline-light btn-floating m-1 rounded-circle" href="#!" role="button"
+            ><i class="fab fa-github"></i
+          ></a>
+        </section>
+        <!-- Section: Social media -->
       </div>
-  
-      
-      <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      <!-- Grid container -->
+    
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
         © 2023 Copyright:
-        <a class="text-white" href="https://boolean.careers/corso/full-stack-web-development">Boolean Student's</a>
+        <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
       </div>
-      
+      <!-- Copyright -->
     </footer>
     
   </div>

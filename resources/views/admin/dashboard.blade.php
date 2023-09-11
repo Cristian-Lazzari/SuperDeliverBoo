@@ -71,25 +71,34 @@
             {{-- <h1>{{$restaurant->id}}</h1> --}}
 
             <header>
-                <div><h1 style="text-align:center; margin-top:20px">{{$restaurant->activity_name}}</h1></div>
+                <div><h1 style="text-align:center; margin-top:20px; font-size:70px"><strong>{{$restaurant->activity_name}}</strong></h1></div>
 
             </header>
 
-            <div class="jumbotron">
-                <img src="https://it.ooni.com/cdn/shop/articles/Margherita-9920.jpg?crop=center&height=800&v=1644590028&width=800" alt="">
+            <div class="jumbotron row" style="opacity: 0.9; background-image:url('https://www.borneylegnami.com/repo/immagini/anteprime/xl/rovere-lavorato-7_b7bcb957ea_.jpg')">
+ 
+                <img src="https://it.ooni.com/cdn/shop/articles/Margherita-9920.jpg?crop=center&height=800&v=1644590028&width=800" alt="" class="col-6">
+
+
+                <div class="col-6" style="text-align: center">
+                    <div>
+                        <div><h2 style="font-size: 50px; color:rgba(255, 255, 0, 0.888)"><strong>INDIRIZZO:</strong> <h3 style="font-size: 40px">{{$restaurant->address}}</h3> </h2></div>
+                        <div><h2 style="font-size: 50px; color:rgba(255, 255, 0, 0.888)"><strong>DESCRIZIONE:</strong> <h3 style="font-size: 40px">{{$restaurant->description}}</h3> </h2></div>
+                        <div><h2 style="font-size: 50px; color:rgba(255, 255, 0, 0.888)"><strong>P.IVA:</strong> <h3 style="font-size: 40px">{{$restaurant->partita_iva}}</h3> </h2></div>
+                    </div>
+                    <div style="margin-top:80px;display:flex; justify-content:center; gap:1rem">
+                        <a class="btn-primary btn" href="{{route('admin.dishes.index')}}">Piatti index</a>
+                        <a class="btn-danger btn" href="{{route('admin.dishes.create')}}">Piatti create</a>
+                        <a class="btn-warning btn" href="{{route('admin.orders.index')}}">Ordini Index</a>
+                    </div>
+
+                </div>
+
+
             </div>
-            
-            <main>
-                <div><h2>INDIRIZZO: <h3>{{$restaurant->address}}</h3> </h2></div>
-                <div><h2>DESCRIZIONE: <h3>{{$restaurant->description}}</h3> </h2></div>
-                <div><h2>P.IVA: <h3>{{$restaurant->partita_iva}}</h3> </h2></div>
-            </main>
-                
                 
             <footer style="display:flex; justify-content:center; margin-top:40px; gap:1rem">
-                <a class="btn-primary btn" href="{{route('admin.dishes.index')}}">Piatti index</a>
-                <a class="btn-danger btn" href="{{route('admin.dishes.create')}}">Piatti create</a>
-                <a class="btn-warning btn" href="{{route('admin.orders.index')}}">Ordini Index</a>
+
             </footer>              
 
 

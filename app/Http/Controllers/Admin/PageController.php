@@ -13,7 +13,8 @@ class PageController extends Controller
     public function dashboard()
     {
 
-         $restaurant = Restaurant::with('user')->where('user_id', Auth::id())->paginate(5);
+         $restaurant = Restaurant::with('user','categories')->where('user_id', Auth::id())->paginate(5);
+
 
          return view('admin.dashboard', compact('restaurant'));
 

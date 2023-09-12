@@ -40,13 +40,18 @@ class OrderController extends Controller
         // salvare i dati del Order nel database
         $total_price = 0;
         $data = $request->all();
+       // $stringcart=$data['arr_dish'];
 
-        $cart = $data['arr_dish'];
+    //    $cart = collect($stringcart);
+    
+
+     //  dd($cart);
         //calcolare il totale dell'ordine
-        foreach ($cart as $elem) {
-            $dish = Dish::where('id', $elem['id'])->first();
-            $total_price += $dish->price * $elem['quantity_item'];
-        }
+      
+    //    for($i = 1; $i <=count($cart); ++$i){
+    //     $dish = Dish::where('id', $cart[$i].['id_dish'])->first();
+    //     $total_price += $dish->price * $cart[$i].['quantity_item'];
+    //    }
 
         $newOrder = new Order();
         $newOrder->user_id       = $data['restaurant_id'];
@@ -60,13 +65,13 @@ class OrderController extends Controller
         $newOrder->status        = 1;
         $newOrder->save();
 
-        foreach ($cart as $elem) {
-            $item_order = new DishOrder();
-            $item_order->order_id = $newOrder->id;
-            $item_order->dish_id = $elem['id'];
-            $item_order->quantity_item = $elem['quantity'];
-            $item_order->save();
-        }
+        // foreach ($cart as $elem) {
+        //     $item_order = new DishOrder();
+        //     $item_order->order_id = $newOrder->id;
+        //     $item_order->dish_id = $elem['id_dish'];
+        //     $item_order->quantity_item = $elem['quantity_item'];
+        //     $item_order->save();
+        // }
 
         // ritornare un valore di successo al frontend
         return response()->json([
